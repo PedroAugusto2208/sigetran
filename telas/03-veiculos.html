@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGETRAN - Frota / Veiculos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>SIGETRAN</h2>
+                <span>Sistema de Gestao de Transporte</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="02-dashboard.html"><span class="icon">&#9776;</span> Dashboard</a></li>
+                    <li><a href="03-veiculos.html" class="active"><span class="icon">&#9951;</span> Frota / Veiculos</a></li>
+                    <li><a href="04-motoristas.html"><span class="icon">&#9823;</span> Motoristas</a></li>
+                    <li><a href="05-clientes.html"><span class="icon">&#9734;</span> Clientes</a></li>
+                    <li><a href="06-rotas.html"><span class="icon">&#10132;</span> Rotas</a></li>
+                    <li><a href="07-cargas.html"><span class="icon">&#9744;</span> Cargas</a></li>
+                    <li><a href="08-viagens.html"><span class="icon">&#9992;</span> Viagens</a></li>
+                    <li><a href="09-frete.html"><span class="icon">&#36;</span> Calculo de Frete</a></li>
+                    <li><a href="10-relatorios.html"><span class="icon">&#9783;</span> Relatorios</a></li>
+                    <li><a href="11-usuarios.html"><span class="icon">&#9881;</span> Usuarios</a></li>
+                    <li><a href="01-login.html"><span class="icon">&#10140;</span> Sair</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="topbar">
+                <h1>Frota / Veiculos</h1>
+                <div class="user-info">
+                    <span>Gestor de Transporte</span>
+                    <div class="user-avatar">GT</div>
+                </div>
+            </div>
+
+            <div class="page-content">
+                <!-- Listagem -->
+                <div class="table-container">
+                    <div class="table-header">
+                        <h3>Veiculos Cadastrados</h3>
+                        <a href="03-veiculos-form.html" class="btn-primary">+ Novo Veiculo</a>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Placa</th>
+                                <th>Modelo</th>
+                                <th>Marca</th>
+                                <th>Ano</th>
+                                <th>Capacidade (kg)</th>
+                                <th>Status</th>
+                                <th>Acoes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ABC-1234</td>
+                                <td>FH 540</td>
+                                <td>Volvo</td>
+                                <td>2022</td>
+                                <td>30.000</td>
+                                <td><span class="badge badge-ativo">Ativo</span></td>
+                                <td class="actions">
+                                    <button class="btn-sm btn-edit">Editar</button>
+                                    <button class="btn-sm btn-delete">Excluir</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>DEF-5678</td>
+                                <td>R 450</td>
+                                <td>Scania</td>
+                                <td>2021</td>
+                                <td>28.000</td>
+                                <td><span class="badge badge-ativo">Ativo</span></td>
+                                <td class="actions">
+                                    <button class="btn-sm btn-edit">Editar</button>
+                                    <button class="btn-sm btn-delete">Excluir</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>GHI-9012</td>
+                                <td>Constellation</td>
+                                <td>Volkswagen</td>
+                                <td>2020</td>
+                                <td>24.000</td>
+                                <td><span class="badge badge-inativo">Inativo</span></td>
+                                <td class="actions">
+                                    <button class="btn-sm btn-edit">Editar</button>
+                                    <button class="btn-sm btn-delete">Excluir</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

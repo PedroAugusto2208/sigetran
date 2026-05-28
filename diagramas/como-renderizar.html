@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Renderizar os Diagramas</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; padding: 40px 60px; color: #333; line-height: 1.8; max-width: 800px; margin: 0 auto; }
+        h1 { color: #1a3a5c; }
+        h2 { color: #2d6a9f; margin-top: 30px; }
+        code { background: #f0f2f5; padding: 2px 8px; border-radius: 4px; font-size: 14px; }
+        .step { background: #f8fafd; border-left: 4px solid #1a3a5c; padding: 16px 20px; margin: 16px 0; border-radius: 0 8px 8px 0; }
+        a { color: #2d6a9f; }
+    </style>
+</head>
+<body>
+    <h1>Como Renderizar os Diagramas PlantUML</h1>
+    <p>Os arquivos <code>.puml</code> contem os diagramas em formato PlantUML. Para gerar as imagens (PNG/SVG), siga um dos metodos abaixo:</p>
+
+    <h2>Metodo 1 - PlantUML Online (mais facil)</h2>
+    <div class="step">
+        <ol>
+            <li>Acesse <a href="https://www.plantuml.com/plantuml/uml" target="_blank">plantuml.com/plantuml/uml</a></li>
+            <li>Copie o conteudo do arquivo <code>.puml</code> e cole no editor online</li>
+            <li>O diagrama sera gerado automaticamente</li>
+            <li>Clique com botao direito na imagem para salvar como PNG</li>
+        </ol>
+    </div>
+
+    <h2>Metodo 2 - Extensao do VS Code</h2>
+    <div class="step">
+        <ol>
+            <li>Instale a extensao "PlantUML" no VS Code</li>
+            <li>Abra o arquivo <code>.puml</code></li>
+            <li>Pressione <code>Alt + D</code> para visualizar o diagrama</li>
+            <li>Use <code>Ctrl + Shift + P</code> &rarr; "PlantUML: Export" para salvar</li>
+        </ol>
+    </div>
+
+    <h2>Arquivos disponiveis</h2>
+    <ul>
+        <li><code>4.7-DER.puml</code> - Diagrama Entidade-Relacionamento</li>
+        <li><code>4.8-diagrama-classes.puml</code> - Diagrama de Classes do Modelo de Dados</li>
+    </ul>
+</body>
+</html>

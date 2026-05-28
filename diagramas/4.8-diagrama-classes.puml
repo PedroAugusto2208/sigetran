@@ -1,0 +1,139 @@
+@startuml DiagramaClasses_SIGETRAN
+
+title Diagrama de Classes do Modelo de Dados\nSIGETRAN - Sistema de Gestao de Transporte
+
+skinparam class {
+    BackgroundColor #f8fafd
+    BorderColor #1a3a5c
+    HeaderBackgroundColor #1a3a5c
+    FontColor #333
+    HeaderFontColor #fff
+    ArrowColor #2d6a9f
+}
+
+skinparam linetype ortho
+
+enum StatusViagem {
+    PROGRAMADA
+    EM_ANDAMENTO
+    CONCLUIDA
+    CANCELADA
+}
+
+enum TipoMercadoria {
+    GERAL
+    PERIGOSA
+    PERECIVEL
+    FRAGIL
+    GRANEL
+}
+
+enum TipoUsuario {
+    ADMINISTRADOR
+    GESTOR_TRANSPORTE
+    MOTORISTA
+    FINANCEIRO
+}
+
+class Veiculo {
+    - id : Long
+    - placa : String
+    - modelo : String
+    - marca : String
+    - anoFabricacao : Integer
+    - capacidadeCarga : Double
+    - ativo : Boolean
+    --
+    + getters/setters()
+}
+
+class Motorista {
+    - id : Long
+    - nome : String
+    - cpf : String
+    - cnh : String
+    - telefone : String
+    - email : String
+    - ativo : Boolean
+    --
+    + getters/setters()
+}
+
+class Cliente {
+    - id : Long
+    - nome : String
+    - cpfCnpj : String
+    - telefone : String
+    - email : String
+    - endereco : String
+    - ativo : Boolean
+    --
+    + getters/setters()
+}
+
+class Rota {
+    - id : Long
+    - origem : String
+    - destino : String
+    - distanciaKm : Double
+    - tempoEstimadoMinutos : Integer
+    - valorPedagio : Double
+    --
+    + getters/setters()
+}
+
+class Carga {
+    - id : Long
+    - descricao : String
+    - pesoKg : Double
+    - volumeM3 : Double
+    - tipoMercadoria : TipoMercadoria
+    --
+    + getters/setters()
+}
+
+class Viagem {
+    - id : Long
+    - status : StatusViagem
+    - dataPartida : LocalDateTime
+    - dataChegada : LocalDateTime
+    --
+    + getters/setters()
+}
+
+class Frete {
+    - id : Long
+    - valorBase : Double
+    - valorPedagio : Double
+    - adicionalCarga : Double
+    - valorTotal : Double
+    --
+    + calcularValorTotal() : Double
+    + getters/setters()
+}
+
+class Usuario {
+    - id : Long
+    - login : String
+    - senha : String
+    - nome : String
+    - tipo : TipoUsuario
+    - ativo : Boolean
+    --
+    + getters/setters()
+}
+
+' === Relacionamentos ===
+
+Viagem "0..*" -- "1" Veiculo : transporta >
+Viagem "0..*" -- "1" Motorista : conduz >
+Viagem "0..*" -- "1" Rota : percorre >
+Viagem "0..*" -- "1" Carga : carrega >
+Viagem "0..*" -- "1" Cliente : solicita >
+Viagem "1" -- "0..1" Frete : gera >
+
+Carga -- TipoMercadoria
+Viagem -- StatusViagem
+Usuario -- TipoUsuario
+
+@enduml

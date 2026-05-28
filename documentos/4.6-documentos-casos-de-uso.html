@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGETRAN - 4.6 Documentos de Casos de Uso</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #fff; color: #333; padding: 40px 60px; line-height: 1.6; }
+        h1 { text-align: center; color: #1a3a5c; margin-bottom: 4px; font-size: 24px; }
+        h2 { text-align: center; color: #555; font-size: 16px; font-weight: 400; margin-bottom: 40px; }
+        .caso-uso { margin-bottom: 40px; page-break-inside: avoid; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; }
+        .caso-uso-header { background: #1a3a5c; color: #fff; padding: 12px 20px; font-size: 16px; font-weight: 700; }
+        .caso-uso-body { padding: 0; }
+        table.info { width: 100%; border-collapse: collapse; }
+        table.info td { padding: 10px 20px; border-bottom: 1px solid #eee; font-size: 14px; vertical-align: top; }
+        table.info td:first-child { width: 200px; font-weight: 600; color: #1a3a5c; background: #f8fafd; }
+        table.info tr:last-child td { border-bottom: none; }
+        ol { padding-left: 20px; }
+        ol li { margin-bottom: 4px; }
+        .projeto-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #1a3a5c; }
+        .projeto-header p { color: #888; font-size: 13px; }
+    </style>
+</head>
+<body>
+
+<div class="projeto-header">
+    <h1>4.6 - Documentos de Casos de Uso</h1>
+    <h2>SIGETRAN - Sistema de Gestao de Transporte</h2>
+    <p>Projeto academico - Disciplina: Projeto de Software II</p>
+</div>
+
+<!-- UC01 -->
+<div class="caso-uso">
+    <div class="caso-uso-header">UC01 - Realizar Login</div>
+    <div class="caso-uso-body">
+        <table class="info">
+            <tr><td>Descricao</td><td>Permite que o usuario acesse o sistema mediante autenticacao por login e senha.</td></tr>
+            <tr><td>Atores</td><td>Administrador, Gestor de Transporte, Motorista, Financeiro</td></tr>
+            <tr><td>Pre-condicoes</td><td>O usuario deve possuir cadastro ativo no sistema.</td></tr>
+            <tr><td>Pos-condicoes</td><td>O usuario e autenticado e redirecionado ao dashboard conforme seu perfil de acesso.</td></tr>
+            <tr><td>Fluxo Principal</td><td>
+                <ol>
+                    <li>O usuario acessa a tela de login do sistema.</li>
+                    <li>O usuario informa login e senha.</li>
+                    <li>O sistema valida as credenciais.</li>
+                    <li>O sistema identifica o perfil do usuario (Administrador, Gestor, Motorista ou Financeiro).</li>
+                    <li>O sistema redireciona o usuario para o dashboard correspondente.</li>
+                </ol>
+            </td></tr>
+            <tr><td>Fluxo Alternativo</td><td>
+                <ol>
+                    <li><b>FA01 - Credenciais invalidas:</b> No passo 3, se as credenciais estiverem incorretas, o sistema exibe mensagem de erro e solicita nova tentativa.</li>
+                    <li><b>FA02 - Usuario inativo:</b> No passo 3, se o usuario estiver inativo, o sistema exibe mensagem informando que o acesso esta bloqueado.</li>
+                </ol>
+            </td></tr>
+            <tr><td>Requisitos Relacionados</td><td>RF13 - Permitir autenticacao por login e senha.</td></tr>
+        </table>
+    </div>
+</div>
+
+<!-- UC02 -->
+<div class="caso-uso">
+    <div class="caso-uso-header">UC02 - Gerenciar Frota (Veiculos)</div>
+    <div class="caso-uso-body">
+        <table class="info">
+            <tr><td>Descricao</td><td>Permite cadastrar, editar, excluir e consultar veiculos da frota.</td></tr>
+            <tr><td>Atores</td><td>Administrador, Gestor de Transporte</td></tr>
+            <tr><td>Pre-condicoes</td><td>O usuario deve estar autenticado com perfil de Administrador ou Gestor de Transporte.</td></tr>
+            <tr><td>Pos-condicoes</td><td>O veiculo e cadastrado/atualizado/removido no sistema.</td></tr>
+            <tr><td>Fluxo Principal (Cadastrar)</td><td>
+                <ol>
+                    <li>O usuario acessa o menu "Frota / Veiculos".</li>
+                    <li>O usuario clica em "Novo Veiculo".</li>
+                    <li>O sistema exibe o formulario de cadastro (placa, modelo, marca, ano, capacidade de carga).</li>
+                    <li>O usuario preenche os dados e clica em "Salvar".</li>
+                    <li>O sistema valida os dados e salva o veiculo.</li>
+                    <li>O sistema exibe mensagem de sucesso e retorna a listagem.</li>
+                </ol>
+            </td></tr>
+            <tr><td>Fluxo Alternativo</td><td>
+                <ol>
+                    <li><b>FA01 - Editar:</b> No passo 1, o usuario clica em "Editar" em um veiculo existente. O sistema carrega os dados no formulario para edicao.</li>
+                    <li><b>FA02 - Excluir:</b> No passo 1, o usuario clica em "Excluir". O sistema solicita confirmacao e, se confirmado, remove o veiculo.</li>
+                    <li><b>FA03 - Placa duplicada:</b> No passo 5, se a placa ja existir, o sistema exibe mensagem de erro.</li>
+                </ol>
+            </td></tr>
+            <tr><td>Requisitos Relacionados</td><td>RF01 - Permitir cadastrar, editar, excluir e consultar veiculos da frota.</td></tr>
+        </table>
+    </div>
+</div>
+
+<!-- UC03 -->
+<div class="caso-uso">
+    <div class="caso-uso-header">UC03 - Gerenciar Motoristas</div>
+    <div class="caso-uso-body">
+        <table class="info">
+            <tr><td>Descricao</td><td>Permite cadastrar, editar, excluir e consultar motoristas.</td></tr>
+            <tr><td>Atores</td><td>Administrador, Gestor de Transporte</td></tr>
+            <tr><td>Pre-condicoes</td><td>O usuario deve estar autenticado com perfil adequado.</td></tr>
+            <tr><td>Pos-condicoes</td><td>O motorista e cadastrado/atualizado/removido no sistema.</td></tr>
+            <tr><td>Fluxo Principal (Cadastrar)</td><td>
+                <ol>
+                    <li>O usuario acessa o menu "Motoristas".</li>
+                    <li>O usuario clica em "Novo Motorista".</li>
+                    <li>O sistema exibe o formulario de cadastro (nome, CPF, CNH, telefone, email).</li>
+                    <li>O usuario preenche os dados e clica em "Salvar".</li>
+                    <li>O sistema valida os dados (CPF e CNH unicos) e salva o motorista.</li>
+                    <li>O sistema exibe mensagem de sucesso e retorna a listagem.</li>
+                </ol>
+            </td></tr>
+            <tr><td>Fluxo Alternativo</td><td>
+                <ol>
+                    <li><b>FA01 - Editar:</b> O usuario clica em "Editar" em um motorista existente para alterar seus dados.</li>
+                    <li><b>FA02 - Excluir:</b> O usuario clica em "Excluir". O sistema valida se o motorista nao possui viagens em andamento antes de remover.</li>
+                    <li><b>FA03 - CPF/CNH duplicado:</b> O sistema exibe erro se CPF ou CNH ja estiverem cadastrados.</li>
+                </ol>
+            </td></tr>
+            <tr><td>Requisitos Relacionados</td><td>RF02 - Permitir cadastrar, editar, excluir e consultar motoristas.</td></tr>
+        </table>
+    </div>
+</div>
+
+<!-- UC04 -->
+<div class="caso-uso">
+    <div class="caso-uso-header">UC04 - Gerenciar Clientes</div>
+    <div class="caso-uso-body">
+        <table class="info">
+            <tr><td>Descricao</td><td>Permite cadastrar, editar, excluir e consultar clientes.</td></tr>
+            <tr><td>Atores</td><td>Administrador, Gestor de Transporte</td></tr>
+            <tr><td>Pre-condicoes</td><td>O usuario deve estar autenticado com perfil adequado.</td></tr>
+            <tr><td>Pos-condicoes</td><td>O cliente e cadastrado/atualizado/removido no sistema.</td></tr>
+            <tr><td>Fluxo Principal (Cadastrar)</td><td>
+                <ol>
+                    <li>O usuario acessa o menu "Clientes".</li>
+                    <li>O usuario clica em "Novo Cliente".</li>
+                    <li>O sistema exibe o formulario de cadastro (nome, CPF/CNPJ, telefone, email, endereco).</li>
+                    <li>O usuario preenche os dados e clica em "Salvar".</li>
+                    <li>O sistema valida os dados e salva o cliente.</li>
+                    <li>O sistema exibe mensagem de sucesso e retorna a listagem.</li>
+                </ol>
+            </td></tr>
+            <tr><td>Fluxo Alternativo</td><td>
+                <ol>
+                    <li><b>FA01 - Editar:</b> O usuario clica em "Editar" em um cliente existente para alterar seus dados.</li>
+                    <li><b>FA02 - Excluir:</b> O usuario clica em "Excluir". O sistema solicita confirmacao antes de remover.</li>
+                    <li><b>FA03 - CPF/CNPJ duplicado:</b> O sistema exibe erro se o documento ja estiver cadastrado.</li>
+                </ol>
+            </td></tr>
+            <tr><td>Requisitos Relacionados</td><td>RF03 - Permitir cadastrar, editar, excluir e consultar clientes.</td></tr>
+        </table>
+    </div>
+</div>
+
+<!-- UC05 -->
+<div class="caso-uso">
+    <div class="caso-uso-header">UC05 - Gerenciar Rotas</div>
+    <div class="caso-uso-body">
+        <table class="info">
+            <tr><td>Descricao</td><td>Permite cadastrar rotas com origem, destino, distancia e tempo estimado.</td></tr>
+            <tr><td>Atores</td><td>Administrador, Gestor de Transporte</td></tr>
+            <tr><td>Pre-condicoes</td><td>O usuario deve estar autenticado com perfil adequado.</td></tr>
+            <tr><td>Pos-condicoes</td><td>A rota e cadastrada/atualizada/removida no sistema.</td></tr>
+            <tr><td>Fluxo Principal (Cadastrar)</td><td>
+                <ol>
+                    <li>O usuario acessa o menu "Rotas".</li>
+                    <li>O usuario clica em "Nova Rota".</li>
+                    <li>O sistema exibe o formulario (origem, destino, distancia em km, tempo estimado, valor pedagio).</li>
+                    <li>O usuario preenche os dados e clica em "Salvar".</li>
+                    <li>O sistema valida e salva a rota.</li>
+                    <li>O sistema exibe mensagem de sucesso e retorna a listagem.</li>
+                </ol>
+            </td></tr>
+            <tr><td>Fluxo Alternativo</td><td>
+                <ol>
+                    <li><b>FA01 - Editar:</b> O usuario clica em "Editar" para alterar dados de uma rota existente.</li>
+                    <li><b>FA02 - Excluir:</b> O sistema verifica se a rota nao esta vinculada a viagens ativas antes de permitir exclusao.</li>
+                </ol>
+            </td></tr>
+            <tr><td>Requisitos Relacionados</td><td>RF04 - Permitir cadastrar rotas com origem, destino, distancia e tempo estimado.</td></tr>
+        </table>
+    </div>
+</div>
+
+<!-- UC06 -->
+<div class="caso-uso">
+    <div class="caso-uso-header">UC06 - Gerenciar Cargas</div>
+    <div class="caso-uso-body">
+        <table class="info">
+            <tr><td>Descricao</td><td>Permite cadastrar cargas com descricao, peso, volume e tipo de mercadoria.</td></tr>
+            <tr><td>Atores</td><td>Administrador, Gestor de Transporte</td></tr>
+            <tr><td>Pre-condicoes</td><td>O usuario deve estar autenticado com perfil adequado.</td></tr>
+            <tr><td>Pos-condicoes</td><td>A carga e cadastrada/atualizada/removida no sistema.</td></tr>
+            <tr><td>Fluxo Principal (Cadastrar)</td><td>
+                <ol>
+                    <li>O usuario acessa o menu "Cargas".</li>
+                    <li>O usuario clica em "Nova Carga".</li>
+                    <li>O sistema exibe o formulario (descricao, peso em kg, volume em m3, tipo de mercadoria).</li>
+                    <li>O usuario seleciona o tipo de mercadoria (Geral, Perigosa, Perecivel, Fragil, Granel).</li>
+                    <li>O usuario clica em "Salvar".</li>
+                    <li>O sistema valida e salva a carga.</li>
+                </ol>
+            </td></tr>
+            <tr><td>Fluxo Alternativo</td><td>
+                <ol>
+                    <li><b>FA01 - Editar:</b> O usuario clica em "Editar" para alterar dados de uma carga existente.</li>
+                    <li><b>FA02 - Excluir:</b> O sistema verifica se a carga nao esta vinculada a viagens antes de permitir exclusao.</li>
+                    <li><b>FA03 - Peso excede capacidade:</b> Ao vincular a uma viagem, o sistema alerta se o peso da carga excede a capacidade do veiculo.</li>
+                </ol>
+            </td></tr>
+            <tr><td>Requisitos Relacionados</td><td>RF05 - Permitir cadastrar cargas com descricao, peso, volume e tipo de mercadoria.</td></tr>
+        </table>
+    </div>
+</div>
+
+<!-- UC07 -->
+<div class="caso-uso">
+    <div class="caso-uso-header">UC07 - Calcular Frete</div>
+    <div class="caso-uso-body">
+        <table class="info">
+            <tr><td>Descricao</td><td>Calcula o valor do frete com base na distancia, tipo de carga, peso, capacidade do veiculo e pedagios.</td></tr>
+            <tr><td>Atores</td><td>Financeiro, Administrador</td></tr>
+            <tr><td>Pre-condicoes</td><td>Devem existir rota, veiculo e carga cadastrados no sistema.</td></tr>
+            <tr><td>Pos-condicoes</td><td>O valor do frete e calculado e armazenado, vinculado a viagem correspondente.</td></tr>
+            <tr><td>Fluxo Principal</td><td>
+                <ol>
+                    <li>O usuario acessa o menu "Calculo de Frete".</li>
+                    <li>O usuario seleciona a rota, o veiculo, a carga e o cliente.</li>
+                    <li>O usuario clica em "Calcular Frete".</li>
+                    <li>O sistema calcula o valor base (distancia x valor por km).</li>
+                    <li>O sistema aplica o fator de peso (peso da carga / capacidade do veiculo).</li>
+                    <li>O sistema soma o valor dos pedagios da rota.</li>
+                    <li>O sistema aplica o adicional por tipo de mercadoria (Perigosa: 30%, Perecivel: 20%, Fragil: 15%, Granel: 5%).</li>
+                    <li>O sistema exibe o detalhamento e o valor total do frete.</li>
+                </ol>
+            </td></tr>
+            <tr><td>Fluxo Alternativo</td><td>
+                <ol>
+                    <li><b>FA01 - Dados incompletos:</b> Se o usuario nao selecionar todos os campos obrigatorios, o sistema exibe mensagem solicitando o preenchimento.</li>
+                </ol>
+            </td></tr>
+            <tr><td>Requisitos Relacionados</td><td>RF06 - Calcular frete com base na distancia, no peso da carga, no valor por quilometro e nos pedagios.</td></tr>
+        </table>
+    </div>
+</div>
+
+<!-- UC08 -->
+<div class="caso-uso">
+    <div class="caso-uso-header">UC08 - Programar Viagem</div>
+    <div class="caso-uso-body">
+        <table class="info">
+            <tr><td>Descricao</td><td>Permite associar um veiculo e um motorista a uma viagem, definindo rota, carga e data de partida.</td></tr>
+            <tr><td>Atores</td><td>Gestor de Transporte</td></tr>
+            <tr><td>Pre-condicoes</td><td>Devem existir veiculo, motorista, rota, carga e cliente cadastrados. O veiculo e motorista devem estar disponiveis.</td></tr>
+            <tr><td>Pos-condicoes</td><td>A viagem e registrada com status "Programada".</td></tr>
+            <tr><td>Fluxo Principal</td><td>
+                <ol>
+                    <li>O usuario acessa o menu "Viagens".</li>
+                    <li>O usuario clica em "Programar Viagem".</li>
+                    <li>O sistema exibe o formulario (veiculo, motorista, rota, carga, cliente, data de partida).</li>
+                    <li>O usuario preenche os dados e clica em "Programar".</li>
+                    <li>O sistema valida a disponibilidade do veiculo e motorista.</li>
+                    <li>O sistema registra a viagem com status "Programada".</li>
+                    <li>O sistema exibe confirmacao e retorna a listagem.</li>
+                </ol>
+            </td></tr>
+            <tr><td>Fluxo Alternativo</td><td>
+                <ol>
+                    <li><b>FA01 - Veiculo indisponivel:</b> O sistema informa que o veiculo ja esta alocado em outra viagem no periodo.</li>
+                    <li><b>FA02 - Motorista indisponivel:</b> O sistema informa que o motorista ja esta alocado em outra viagem no periodo.</li>
+                </ol>
+            </td></tr>
+            <tr><td>Requisitos Relacionados</td><td>RF07 - Associar veiculo e motorista a uma viagem. RF08 - Registrar viagens programadas.</td></tr>
+        </table>
+    </div>
+</div>
+
+<!-- UC09 -->
+<div class="caso-uso">
+    <div class="caso-uso-header">UC09 - Atualizar Status da Viagem</div>
+    <div class="caso-uso-body">
+        <table class="info">
+            <tr><td>Descricao</td><td>Permite alterar o status da viagem entre Programada, Em Andamento, Concluida ou Cancelada.</td></tr>
+            <tr><td>Atores</td><td>Gestor de Transporte, Motorista</td></tr>
+            <tr><td>Pre-condicoes</td><td>A viagem deve existir no sistema.</td></tr>
+            <tr><td>Pos-condicoes</td><td>O status da viagem e atualizado. Datas de partida/chegada sao registradas automaticamente.</td></tr>
+            <tr><td>Fluxo Principal</td><td>
+                <ol>
+                    <li>O usuario acessa a listagem de viagens.</li>
+                    <li>O usuario clica em "Atualizar" na viagem desejada.</li>
+                    <li>O sistema exibe as opcoes de status disponiveis.</li>
+                    <li>O usuario seleciona o novo status.</li>
+                    <li>Se "Em Andamento", o sistema registra a data/hora de partida.</li>
+                    <li>Se "Concluida", o sistema registra a data/hora de chegada.</li>
+                    <li>O sistema salva a atualizacao.</li>
+                </ol>
+            </td></tr>
+            <tr><td>Fluxo Alternativo</td><td>
+                <ol>
+                    <li><b>FA01 - Cancelar viagem:</b> O usuario seleciona "Cancelada". O sistema solicita motivo do cancelamento.</li>
+                </ol>
+            </td></tr>
+            <tr><td>Requisitos Relacionados</td><td>RF09 - Alterar o status da viagem para programada, em andamento, concluida ou cancelada.</td></tr>
+        </table>
+    </div>
+</div>
+
+<!-- UC10 -->
+<div class="caso-uso">
+    <div class="caso-uso-header">UC10 - Consultar Historico de Viagens</div>
+    <div class="caso-uso-body">
+        <table class="info">
+            <tr><td>Descricao</td><td>Permite consultar o historico de viagens por veiculo e por motorista.</td></tr>
+            <tr><td>Atores</td><td>Administrador, Gestor de Transporte, Financeiro</td></tr>
+            <tr><td>Pre-condicoes</td><td>O usuario deve estar autenticado. Devem existir viagens registradas.</td></tr>
+            <tr><td>Pos-condicoes</td><td>O historico e exibido conforme os filtros aplicados.</td></tr>
+            <tr><td>Fluxo Principal</td><td>
+                <ol>
+                    <li>O usuario acessa o menu "Relatorios" ou a listagem de viagens.</li>
+                    <li>O usuario aplica filtros (periodo, motorista, veiculo, status).</li>
+                    <li>O sistema busca e exibe as viagens correspondentes.</li>
+                    <li>O usuario pode visualizar detalhes de cada viagem.</li>
+                </ol>
+            </td></tr>
+            <tr><td>Fluxo Alternativo</td><td>
+                <ol>
+                    <li><b>FA01 - Sem resultados:</b> O sistema exibe mensagem informando que nenhuma viagem foi encontrada para os filtros selecionados.</li>
+                </ol>
+            </td></tr>
+            <tr><td>Requisitos Relacionados</td><td>RF11 - Consultar historico de viagens por veiculo e por motorista.</td></tr>
+        </table>
+    </div>
+</div>
+
+<!-- UC11 -->
+<div class="caso-uso">
+    <div class="caso-uso-header">UC11 - Emitir Relatorios Gerenciais</div>
+    <div class="caso-uso-body">
+        <table class="info">
+            <tr><td>Descricao</td><td>Gera relatorios gerenciais de viagens realizadas e fretes calculados.</td></tr>
+            <tr><td>Atores</td><td>Administrador, Financeiro</td></tr>
+            <tr><td>Pre-condicoes</td><td>O usuario deve estar autenticado. Devem existir dados de viagens e fretes no sistema.</td></tr>
+            <tr><td>Pos-condicoes</td><td>O relatorio e gerado e disponibilizado para visualizacao/exportacao.</td></tr>
+            <tr><td>Fluxo Principal</td><td>
+                <ol>
+                    <li>O usuario acessa o menu "Relatorios".</li>
+                    <li>O usuario seleciona o tipo de relatorio (Viagens, Fretes, Utilizacao da Frota, Desempenho Motoristas).</li>
+                    <li>O usuario define o periodo desejado.</li>
+                    <li>O sistema gera o relatorio com os dados consolidados.</li>
+                    <li>O sistema exibe o relatorio em formato tabular.</li>
+                    <li>O usuario pode exportar o relatorio.</li>
+                </ol>
+            </td></tr>
+            <tr><td>Fluxo Alternativo</td><td>
+                <ol>
+                    <li><b>FA01 - Sem dados:</b> O sistema informa que nao ha dados para o periodo selecionado.</li>
+                </ol>
+            </td></tr>
+            <tr><td>Requisitos Relacionados</td><td>RF10 - Gerar relatorios de viagens realizadas e fretes calculados. RF14 - Exibir painel gerencial com indicadores resumidos.</td></tr>
+        </table>
+    </div>
+</div>
+
+<!-- UC12 -->
+<div class="caso-uso">
+    <div class="caso-uso-header">UC12 - Gerenciar Usuarios</div>
+    <div class="caso-uso-body">
+        <table class="info">
+            <tr><td>Descricao</td><td>Permite cadastrar usuarios com niveis de acesso no sistema.</td></tr>
+            <tr><td>Atores</td><td>Administrador</td></tr>
+            <tr><td>Pre-condicoes</td><td>O usuario deve estar autenticado com perfil de Administrador.</td></tr>
+            <tr><td>Pos-condicoes</td><td>O usuario e cadastrado/atualizado/removido com o perfil de acesso definido.</td></tr>
+            <tr><td>Fluxo Principal (Cadastrar)</td><td>
+                <ol>
+                    <li>O administrador acessa o menu "Usuarios".</li>
+                    <li>O administrador clica em "Novo Usuario".</li>
+                    <li>O sistema exibe o formulario (nome, login, senha, perfil de acesso).</li>
+                    <li>O administrador seleciona o perfil: Administrador, Gestor de Transporte, Motorista ou Financeiro.</li>
+                    <li>O administrador clica em "Salvar".</li>
+                    <li>O sistema valida os dados e salva o usuario.</li>
+                </ol>
+            </td></tr>
+            <tr><td>Fluxo Alternativo</td><td>
+                <ol>
+                    <li><b>FA01 - Login duplicado:</b> O sistema exibe erro se o login ja existir.</li>
+                    <li><b>FA02 - Editar:</b> O administrador altera dados de um usuario existente.</li>
+                    <li><b>FA03 - Excluir:</b> O sistema valida se o usuario nao e o unico administrador antes de permitir exclusao.</li>
+                </ol>
+            </td></tr>
+            <tr><td>Requisitos Relacionados</td><td>RF12 - Permitir cadastro de usuarios com niveis de acesso. RF13 - Permitir autenticacao por login e senha.</td></tr>
+        </table>
+    </div>
+</div>
+
+<div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; color: #888; font-size: 12px;">
+    SIGETRAN - Projeto Academico | Projeto de Software II
+</div>
+
+</body>
+</html>

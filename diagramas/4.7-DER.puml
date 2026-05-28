@@ -1,0 +1,107 @@
+@startuml DER_SIGETRAN
+
+!define TABLE(x) entity x << (T, #AAAAFF) >>
+
+title Diagrama Entidade-Relacionamento (DER)\nSIGETRAN - Sistema de Gestao de Transporte
+
+skinparam entity {
+    BackgroundColor #f8fafd
+    BorderColor #1a3a5c
+    FontColor #333
+}
+
+skinparam linetype ortho
+
+TABLE(VEICULO) {
+    * **id** : BIGINT <<PK>>
+    --
+    * placa : VARCHAR(10) <<UNIQUE>>
+    * modelo : VARCHAR(100)
+    * marca : VARCHAR(100)
+    * ano_fabricacao : INT
+    * capacidade_carga : DECIMAL(10,2)
+    ativo : BOOLEAN
+}
+
+TABLE(MOTORISTA) {
+    * **id** : BIGINT <<PK>>
+    --
+    * nome : VARCHAR(200)
+    * cpf : VARCHAR(14) <<UNIQUE>>
+    * cnh : VARCHAR(20) <<UNIQUE>>
+    * telefone : VARCHAR(20)
+    email : VARCHAR(200)
+    ativo : BOOLEAN
+}
+
+TABLE(CLIENTE) {
+    * **id** : BIGINT <<PK>>
+    --
+    * nome : VARCHAR(200)
+    * cpf_cnpj : VARCHAR(18) <<UNIQUE>>
+    telefone : VARCHAR(20)
+    email : VARCHAR(200)
+    endereco : VARCHAR(300)
+    ativo : BOOLEAN
+}
+
+TABLE(ROTA) {
+    * **id** : BIGINT <<PK>>
+    --
+    * origem : VARCHAR(200)
+    * destino : VARCHAR(200)
+    * distancia_km : DECIMAL(10,2)
+    tempo_estimado_min : INT
+    valor_pedagio : DECIMAL(10,2)
+}
+
+TABLE(CARGA) {
+    * **id** : BIGINT <<PK>>
+    --
+    * descricao : VARCHAR(300)
+    * peso_kg : DECIMAL(10,2)
+    * volume_m3 : DECIMAL(10,2)
+    tipo_mercadoria : ENUM('GERAL','PERIGOSA','PERECIVEL','FRAGIL','GRANEL')
+}
+
+TABLE(VIAGEM) {
+    * **id** : BIGINT <<PK>>
+    --
+    * veiculo_id : BIGINT <<FK>>
+    * motorista_id : BIGINT <<FK>>
+    * rota_id : BIGINT <<FK>>
+    * carga_id : BIGINT <<FK>>
+    * cliente_id : BIGINT <<FK>>
+    * status : ENUM('PROGRAMADA','EM_ANDAMENTO','CONCLUIDA','CANCELADA')
+    data_partida : DATETIME
+    data_chegada : DATETIME
+}
+
+TABLE(FRETE) {
+    * **id** : BIGINT <<PK>>
+    --
+    * viagem_id : BIGINT <<FK>> <<UNIQUE>>
+    * valor_base : DECIMAL(10,2)
+    valor_pedagio : DECIMAL(10,2)
+    adicional_carga : DECIMAL(10,2)
+    * valor_total : DECIMAL(10,2)
+}
+
+TABLE(USUARIO) {
+    * **id** : BIGINT <<PK>>
+    --
+    * login : VARCHAR(100) <<UNIQUE>>
+    * senha : VARCHAR(255)
+    * nome : VARCHAR(200)
+    * tipo : ENUM('ADMINISTRADOR','GESTOR_TRANSPORTE','MOTORISTA','FINANCEIRO')
+    ativo : BOOLEAN
+}
+
+VEICULO ||--o{ VIAGEM : "transporta"
+MOTORISTA ||--o{ VIAGEM : "conduz"
+ROTA ||--o{ VIAGEM : "percorre"
+CARGA ||--o{ VIAGEM : "carrega"
+CLIENTE ||--o{ VIAGEM : "solicita"
+VIAGEM ||--o| FRETE : "gera"
+
+@enduml
