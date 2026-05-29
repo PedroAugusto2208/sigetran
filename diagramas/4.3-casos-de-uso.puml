@@ -1,0 +1,114 @@
+@startuml CasosDeUso_SIGETRAN
+
+title Diagrama de Casos de Uso\nSIGETRAN - Sistema de Gestão de Transporte
+
+skinparam actorStyle awesome
+skinparam usecase {
+    BackgroundColor #f8fafd
+    BorderColor #1a3a5c
+    FontColor #333
+    ArrowColor #2d6a9f
+}
+skinparam actor {
+    BackgroundColor #e8f0fe
+    BorderColor #1a3a5c
+    FontColor #1a3a5c
+}
+
+' ===== ATORES =====
+actor "Administrador" as Admin
+actor "Gestor de\nTransporte" as Gestor
+actor "Motorista" as Motorista
+actor "Financeiro" as Financeiro
+
+' Herança de atores
+Admin --|> Gestor
+Gestor --|> Financeiro
+
+' ===== SISTEMA =====
+rectangle "SIGETRAN - Sistema de Gestão de Transporte" {
+
+    ' --- Autenticação ---
+    usecase "UC01\nRealizar Login" as UC01
+    usecase "UC12\nGerenciar Usuários" as UC12
+
+    ' --- Gestão de Cadastros ---
+    usecase "UC02\nGerenciar Frota\n(Veículos)" as UC02
+    usecase "UC03\nGerenciar\nMotoristas" as UC03
+    usecase "UC04\nGerenciar\nClientes" as UC04
+    usecase "UC05\nGerenciar Rotas" as UC05
+    usecase "UC06\nGerenciar Cargas" as UC06
+
+    ' --- Operações de Viagem ---
+    usecase "UC08\nProgramar Viagem" as UC08
+    usecase "UC09\nAtualizar Status\nda Viagem" as UC09
+    usecase "UC10\nConsultar Histórico\nde Viagens" as UC10
+
+    ' --- Financeiro ---
+    usecase "UC07\nCalcular Frete" as UC07
+
+    ' --- Relatórios ---
+    usecase "UC11\nEmitir Relatórios\nGerenciais" as UC11
+
+}
+
+' ===== ASSOCIAÇÕES =====
+
+' Todos os perfis fazem login
+Admin --> UC01
+Gestor --> UC01
+Motorista --> UC01
+Financeiro --> UC01
+
+' Administrador
+Admin --> UC12
+Admin --> UC02
+Admin --> UC03
+Admin --> UC04
+Admin --> UC05
+Admin --> UC06
+Admin --> UC07
+Admin --> UC10
+Admin --> UC11
+
+' Gestor de Transporte
+Gestor --> UC02
+Gestor --> UC03
+Gestor --> UC04
+Gestor --> UC05
+Gestor --> UC06
+Gestor --> UC08
+Gestor --> UC09
+Gestor --> UC10
+
+' Motorista
+Motorista --> UC09
+Motorista --> UC10
+
+' Financeiro
+Financeiro --> UC07
+Financeiro --> UC10
+Financeiro --> UC11
+
+' ===== INCLUSÕES / EXTENSÕES =====
+UC08 ..> UC07 : <<include>>
+UC08 ..> UC09 : <<extend>>
+
+note right of UC07
+  Cálculo:
+  valor_base = distância × R$2,50
+  + pedágio
+  + adicional por tipo de carga
+  (Perigosa: +30%, Perecível: +20%,
+   Frágil: +15%, Granel: +5%)
+end note
+
+note bottom of UC09
+  Status possíveis:
+  PROGRAMADA → EM_ANDAMENTO
+  EM_ANDAMENTO → CONCLUIDA
+  PROGRAMADA → CANCELADA
+  EM_ANDAMENTO → CANCELADA
+end note
+
+@enduml

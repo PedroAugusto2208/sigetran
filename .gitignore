@@ -6,3 +6,24 @@ Thumbs.db
 # Editor
 .vscode/
 .idea/
+
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Build
+dist/
+build/
+.expo/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Database
+*.db
+*.sqlite

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGETRAN - Manual do Usuário</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #fff; color: #333; line-height: 1.7; }
+        .cover { background: #1a3a5c; color: #fff; padding: 80px 60px; text-align: center; }
+        .cover h1 { font-size: 40px; margin-bottom: 10px; }
+        .cover h2 { font-size: 20px; font-weight: 400; opacity: 0.8; margin-bottom: 30px; }
+        .cover p { opacity: 0.6; font-size: 13px; }
+        .conteudo { max-width: 860px; margin: 0 auto; padding: 40px 40px 80px; }
+        h2 { color: #1a3a5c; font-size: 20px; margin: 40px 0 12px; border-bottom: 2px solid #1a3a5c; padding-bottom: 6px; }
+        h3 { color: #2d6a9f; font-size: 16px; margin: 22px 0 8px; }
+        p  { font-size: 14px; margin-bottom: 10px; }
+        ul, ol { padding-left: 22px; font-size: 14px; margin-bottom: 12px; }
+        ul li, ol li { margin-bottom: 6px; }
+        .destaque { background: #e8f0fe; border-left: 4px solid #1a3a5c; padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 14px 0; font-size: 14px; }
+        .aviso    { background: #fef3e2; border-left: 4px solid #f39c12; padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 14px 0; font-size: 14px; }
+        .alerta   { background: #fde8e8; border-left: 4px solid #e74c3c; padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 14px 0; font-size: 14px; }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 12px 0; }
+        th { background: #1a3a5c; color: #fff; padding: 9px 14px; text-align: left; }
+        td { padding: 9px 14px; border-bottom: 1px solid #eee; }
+        tr:nth-child(even) td { background: #f8fafd; }
+        .badge { display: inline-block; border-radius: 4px; padding: 2px 8px; font-size: 12px; font-weight: 600; }
+        .b-admin { background: #e8f0fe; color: #1a73e8; }
+        .b-gestor { background: #e8f5e9; color: #2e7d32; }
+        .b-motor { background: #fff3e0; color: #e65100; }
+        .b-fin   { background: #f3e8fd; color: #6d34a3; }
+        .step { display: flex; gap: 14px; margin-bottom: 14px; }
+        .step-num { background: #1a3a5c; color: #fff; border-radius: 50%; width: 28px; height: 28px; min-width: 28px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; }
+        .step-body { flex: 1; }
+        footer { text-align: center; padding: 30px; border-top: 1px solid #ddd; color: #888; font-size: 12px; background: #f8fafd; }
+    </style>
+</head>
+<body>
+
+<div class="cover">
+    <h1>🚚 SIGETRAN</h1>
+    <h2>Manual do Usuário</h2>
+    <p>Sistema de Gestão de Transporte | Versão 1.0</p>
+    <p style="margin-top: 8px;">Projeto Acadêmico — Projetos de Software II | Prof. Marcos Lopes | Uniube</p>
+</div>
+
+<div class="conteudo">
+
+<h2>1. Introdução</h2>
+<p>O <strong>SIGETRAN</strong> é um sistema de gestão de transporte de cargas que permite o controle integrado de frota de veículos, motoristas, clientes, rotas, cargas, viagens e cálculo de fretes. O sistema está disponível em duas plataformas:</p>
+<ul>
+    <li><strong>Interface Web</strong> — acesso pelo navegador, destinada a gestores, administradores e financeiro;</li>
+    <li><strong>Aplicativo Mobile</strong> — disponível para Android e iOS, destinado principalmente aos motoristas.</li>
+</ul>
+<div class="destaque">
+    <strong>Acesso:</strong> O sistema é acessível remotamente via internet. Não é necessária instalação de software adicional para a versão web.
+</div>
+
+<h2>2. Perfis de Acesso</h2>
+<p>O SIGETRAN possui quatro perfis de usuário com diferentes níveis de acesso:</p>
+<table>
+    <thead><tr><th>Perfil</th><th>Descrição</th><th>Principais Funções</th></tr></thead>
+    <tbody>
+        <tr>
+            <td><span class="badge b-admin">Administrador</span></td>
+            <td>Acesso total ao sistema</td>
+            <td>Gerenciar usuários, todos os cadastros, relatórios, fretes</td>
+        </tr>
+        <tr>
+            <td><span class="badge b-gestor">Gestor de Transporte</span></td>
+            <td>Gestão operacional</td>
+            <td>Veículos, motoristas, clientes, rotas, cargas, viagens</td>
+        </tr>
+        <tr>
+            <td><span class="badge b-motor">Motorista</span></td>
+            <td>Acesso às próprias viagens</td>
+            <td>Visualizar e atualizar status das viagens atribuídas</td>
+        </tr>
+        <tr>
+            <td><span class="badge b-fin">Financeiro</span></td>
+            <td>Acesso financeiro</td>
+            <td>Calcular fretes, emitir relatórios, consultar viagens</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>3. Acesso ao Sistema — Interface Web</h2>
+
+<h3>3.1 Realizando o Login</h3>
+<div class="step"><div class="step-num">1</div><div class="step-body">Abra o navegador e acesse o endereço do sistema.</div></div>
+<div class="step"><div class="step-num">2</div><div class="step-body">Digite seu <strong>login</strong> (nome de usuário) e <strong>senha</strong> fornecidos pelo administrador.</div></div>
+<div class="step"><div class="step-num">3</div><div class="step-body">Clique em <strong>"Entrar"</strong>. Você será redirecionado ao dashboard do seu perfil.</div></div>
+<div class="aviso"><strong>⚠️ Atenção:</strong> Após 8 horas de inatividade, a sessão expira automaticamente e o login é solicitado novamente.</div>
+
+<h3>3.2 Dashboard</h3>
+<p>Ao fazer login, o usuário é direcionado ao painel de controle (dashboard) que exibe:</p>
+<ul>
+    <li>Quantidade de viagens por status (Programadas, Em Andamento, Concluídas, Canceladas);</li>
+    <li>Receita total dos fretes calculados.</li>
+</ul>
+
+<h2>4. Módulo de Veículos</h2>
+<p>Acesse pelo menu lateral: <strong>🚛 Veículos</strong></p>
+<h3>4.1 Cadastrar Veículo</h3>
+<div class="step"><div class="step-num">1</div><div class="step-body">Clique em <strong>"+ Novo Veículo"</strong>.</div></div>
+<div class="step"><div class="step-num">2</div><div class="step-body">Preencha: <strong>Placa</strong> (obrigatório, único), <strong>Modelo</strong>, <strong>Marca</strong>, <strong>Ano de Fabricação</strong>, <strong>Capacidade de Carga (kg)</strong>.</div></div>
+<div class="step"><div class="step-num">3</div><div class="step-body">Clique em <strong>"Salvar"</strong>.</div></div>
+<h3>4.2 Editar / Excluir Veículo</h3>
+<p>Na tabela, clique em <strong>"Editar"</strong> para alterar os dados ou <strong>"Excluir"</strong> para remover. Veículos com viagens ativas não podem ser excluídos.</p>
+
+<h2>5. Módulo de Motoristas</h2>
+<p>Acesse pelo menu lateral: <strong>👤 Motoristas</strong></p>
+<h3>5.1 Cadastrar Motorista</h3>
+<div class="step"><div class="step-num">1</div><div class="step-body">Clique em <strong>"+ Novo Motorista"</strong>.</div></div>
+<div class="step"><div class="step-num">2</div><div class="step-body">Preencha: <strong>Nome Completo</strong>, <strong>CPF</strong> (único), <strong>CNH</strong> (única), <strong>Telefone</strong>, <strong>E-mail</strong>.</div></div>
+<div class="step"><div class="step-num">3</div><div class="step-body">Clique em <strong>"Salvar"</strong>.</div></div>
+
+<h2>6. Módulo de Clientes</h2>
+<p>Acesse pelo menu lateral: <strong>🏢 Clientes</strong></p>
+<p>Cadastre clientes (pessoa física ou jurídica) com Nome, CPF/CNPJ, Telefone, E-mail e Endereço. O CPF/CNPJ deve ser único no sistema.</p>
+
+<h2>7. Módulo de Rotas</h2>
+<p>Acesse pelo menu lateral: <strong>🗺️ Rotas</strong></p>
+<p>Cadastre rotas informando Origem, Destino, Distância em km, Tempo Estimado (minutos) e Valor de Pedágio (R$).</p>
+
+<h2>8. Módulo de Cargas</h2>
+<p>Acesse pelo menu lateral: <strong>📦 Cargas</strong></p>
+<p>Cadastre cargas com Descrição, Peso (kg), Volume (m³) e Tipo de Mercadoria:</p>
+<table>
+    <thead><tr><th>Tipo</th><th>Adicional no Frete</th></tr></thead>
+    <tbody>
+        <tr><td>Geral</td><td>Sem adicional</td></tr>
+        <tr><td>Granel</td><td>+5%</td></tr>
+        <tr><td>Frágil</td><td>+15%</td></tr>
+        <tr><td>Perecível</td><td>+20%</td></tr>
+        <tr><td>Perigosa</td><td>+30%</td></tr>
+    </tbody>
+</table>
+
+<h2>9. Módulo de Viagens</h2>
+<p>Acesse pelo menu lateral: <strong>🗓️ Viagens</strong></p>
+<h3>9.1 Programar Viagem</h3>
+<div class="step"><div class="step-num">1</div><div class="step-body">Clique em <strong>"+ Programar Viagem"</strong>.</div></div>
+<div class="step"><div class="step-num">2</div><div class="step-body">Selecione: <strong>Veículo</strong>, <strong>Motorista</strong>, <strong>Rota</strong>, <strong>Carga</strong> e <strong>Cliente</strong>.</div></div>
+<div class="step"><div class="step-num">3</div><div class="step-body">Informe a <strong>Data de Partida</strong> prevista (opcional).</div></div>
+<div class="step"><div class="step-num">4</div><div class="step-body">Clique em <strong>"Programar"</strong>. O sistema validará a disponibilidade e calculará o frete automaticamente.</div></div>
+
+<div class="destaque"><strong>💡 Frete automático:</strong> Ao programar uma viagem, o frete é calculado automaticamente com base na distância da rota, peso da carga, capacidade do veículo, pedágios e tipo de mercadoria.</div>
+
+<h3>9.2 Atualizar Status da Viagem</h3>
+<p>Na tabela de viagens, clique em <strong>"Editar"</strong> na viagem desejada. Selecione o novo status:</p>
+<table>
+    <thead><tr><th>Status</th><th>Significado</th><th>Ação do Sistema</th></tr></thead>
+    <tbody>
+        <tr><td>PROGRAMADA</td><td>Viagem agendada</td><td>—</td></tr>
+        <tr><td>EM ANDAMENTO</td><td>Motorista em trânsito</td><td>Registra data/hora de partida</td></tr>
+        <tr><td>CONCLUÍDA</td><td>Entrega realizada</td><td>Registra data/hora de chegada</td></tr>
+        <tr><td>CANCELADA</td><td>Viagem não realizada</td><td>Libera veículo e motorista</td></tr>
+    </tbody>
+</table>
+
+<h2>10. Módulo de Fretes</h2>
+<p>Acesse pelo menu lateral: <strong>💰 Fretes</strong></p>
+<p>Visualize o detalhamento dos fretes calculados: valor base, pedágio, adicional por tipo de carga e valor total.</p>
+<h3>Fórmula de Cálculo:</h3>
+<div class="destaque">
+    <strong>Fator Peso</strong> = peso_carga / capacidade_veículo (máx. 1)<br>
+    <strong>Valor Base</strong> = distância × R$ 2,50/km × (1 + Fator Peso)<br>
+    <strong>Total</strong> = Valor Base + Pedágio + (Valor Base × Adicional do Tipo)
+</div>
+
+<h2>11. Relatórios</h2>
+<p>Acesse pelo menu lateral: <strong>📈 Relatórios</strong></p>
+<p>O módulo de relatórios oferece duas visualizações:</p>
+<ul>
+    <li><strong>Relatório de Viagens:</strong> lista todas as viagens com detalhes de veículo, motorista, rota e frete. Mostra o total de registros.</li>
+    <li><strong>Relatório de Fretes:</strong> lista todos os fretes com o detalhamento financeiro e a receita total acumulada.</li>
+</ul>
+
+<h2>12. Gerenciamento de Usuários</h2>
+<p>Acesse pelo menu lateral: <strong>⚙️ Usuários</strong> (somente <span class="badge b-admin">Administrador</span>)</p>
+<p>O administrador pode cadastrar novos usuários do sistema, definindo nome, login, senha e perfil de acesso. Para editar, clique em "Editar". Para excluir, clique em "Excluir".</p>
+<div class="alerta"><strong>⚠️ Atenção:</strong> Guarde as senhas em local seguro. O sistema armazena senhas de forma criptografada e não exibe senhas existentes ao editar.</div>
+
+<h2>13. Acesso Mobile — Motoristas</h2>
+<p>O aplicativo mobile do SIGETRAN é destinado principalmente aos motoristas. Para utilizar:</p>
+
+<h3>13.1 Instalação</h3>
+<div class="step"><div class="step-num">1</div><div class="step-body">Baixe o APK (Android) ou acesse a loja de aplicativos conforme indicado pelo administrador.</div></div>
+<div class="step"><div class="step-num">2</div><div class="step-body">Instale o aplicativo no smartphone.</div></div>
+<div class="step"><div class="step-num">3</div><div class="step-body">Abra o aplicativo e faça login com as credenciais fornecidas.</div></div>
+
+<h3>13.2 Funcionalidades do App</h3>
+<ul>
+    <li><strong>Dashboard:</strong> Exibe resumo das viagens (programadas, em andamento, concluídas);</li>
+    <li><strong>Minhas Viagens:</strong> Lista as viagens atribuídas ao motorista logado;</li>
+    <li><strong>Atualizar Status:</strong> Toque na viagem e selecione o novo status (Em Andamento / Concluída / Cancelada);</li>
+    <li><strong>Pull to refresh:</strong> Puxe a tela para baixo para atualizar a lista de viagens.</li>
+</ul>
+
+<h2>14. Solução de Problemas</h2>
+<table>
+    <thead><tr><th>Problema</th><th>Possível Causa</th><th>Solução</th></tr></thead>
+    <tbody>
+        <tr><td>Não consigo fazer login</td><td>Login ou senha incorretos / usuário inativo</td><td>Verifique as credenciais. Contate o administrador se necessário.</td></tr>
+        <tr><td>Sessão expirou</td><td>Inatividade por mais de 8 horas</td><td>Faça login novamente.</td></tr>
+        <tr><td>Não consigo excluir veículo</td><td>Veículo com viagens ativas</td><td>Conclua ou cancele as viagens ativas antes.</td></tr>
+        <tr><td>Erro "Veículo ou motorista já alocado"</td><td>Disponibilidade não verificada</td><td>Conclua ou cancele a viagem ativa do veículo/motorista.</td></tr>
+        <tr><td>App mobile não conecta</td><td>Servidor offline ou URL incorreta</td><td>Verifique a conexão com a internet. Contate o administrador.</td></tr>
+        <tr><td>Placa duplicada</td><td>Placa já cadastrada</td><td>Verifique se o veículo já existe no sistema.</td></tr>
+    </tbody>
+</table>
+
+<h2>15. Suporte</h2>
+<p>Em caso de dúvidas ou problemas não resolvidos por este manual, entre em contato com o administrador do sistema ou com a equipe de desenvolvimento do projeto.</p>
+
+</div>
+
+<footer>SIGETRAN — Manual do Usuário v1.0 | Projeto Acadêmico — Projetos de Software II | Uniube</footer>
+</body>
+</html>

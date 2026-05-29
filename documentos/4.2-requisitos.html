@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGETRAN - 4.2 Levantamento de Requisitos</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #fff; color: #333; padding: 40px 60px; line-height: 1.7; }
+        h1 { text-align: center; color: #1a3a5c; font-size: 24px; margin-bottom: 4px; }
+        h2 { text-align: center; color: #555; font-size: 16px; font-weight: 400; margin-bottom: 40px; }
+        h3 { color: #1a3a5c; font-size: 16px; margin: 28px 0 10px 0; border-bottom: 2px solid #1a3a5c; padding-bottom: 4px; }
+        .projeto-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #1a3a5c; }
+        .projeto-header p { color: #888; font-size: 13px; }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 10px; margin-bottom: 20px; }
+        th { background: #1a3a5c; color: #fff; padding: 10px 14px; text-align: left; }
+        td { padding: 9px 14px; border-bottom: 1px solid #eee; vertical-align: top; }
+        tr:nth-child(even) td { background: #f8fafd; }
+        .badge { display: inline-block; border-radius: 4px; padding: 2px 8px; font-size: 11px; font-weight: 700; }
+        .alta { background: #fde8e8; color: #c0392b; }
+        .media { background: #fef3e2; color: #d68910; }
+        .baixa { background: #e8f8f0; color: #1e8449; }
+        footer { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #ddd; color: #888; font-size: 12px; }
+    </style>
+</head>
+<body>
+
+<div class="projeto-header">
+    <h1>4.2 - Levantamento de Requisitos</h1>
+    <h2>SIGETRAN - Sistema de Gestão de Transporte</h2>
+    <p>Projeto acadêmico - Disciplina: Projetos de Software II | Prof. Marcos Lopes | Uniube</p>
+</div>
+
+<h3>1. Requisitos Funcionais</h3>
+
+<table>
+    <thead>
+        <tr><th>ID</th><th>Descrição</th><th>Prioridade</th><th>Perfil(s)</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>RF01</td>
+            <td>O sistema deve permitir cadastrar, editar, excluir e consultar veículos da frota (placa, modelo, marca, ano de fabricação, capacidade de carga, status ativo/inativo).</td>
+            <td><span class="badge alta">ALTA</span></td>
+            <td>Administrador, Gestor de Transporte</td>
+        </tr>
+        <tr>
+            <td>RF02</td>
+            <td>O sistema deve permitir cadastrar, editar, excluir e consultar motoristas (nome, CPF, CNH, telefone, e-mail, status ativo/inativo).</td>
+            <td><span class="badge alta">ALTA</span></td>
+            <td>Administrador, Gestor de Transporte</td>
+        </tr>
+        <tr>
+            <td>RF03</td>
+            <td>O sistema deve permitir cadastrar, editar, excluir e consultar clientes (nome, CPF/CNPJ, telefone, e-mail, endereço, status ativo/inativo).</td>
+            <td><span class="badge alta">ALTA</span></td>
+            <td>Administrador, Gestor de Transporte</td>
+        </tr>
+        <tr>
+            <td>RF04</td>
+            <td>O sistema deve permitir cadastrar rotas com origem, destino, distância em km, tempo estimado e valor de pedágio.</td>
+            <td><span class="badge alta">ALTA</span></td>
+            <td>Administrador, Gestor de Transporte</td>
+        </tr>
+        <tr>
+            <td>RF05</td>
+            <td>O sistema deve permitir cadastrar cargas com descrição, peso em kg, volume em m³ e tipo de mercadoria (Geral, Perigosa, Perecível, Frágil, Granel).</td>
+            <td><span class="badge alta">ALTA</span></td>
+            <td>Administrador, Gestor de Transporte</td>
+        </tr>
+        <tr>
+            <td>RF06</td>
+            <td>O sistema deve calcular automaticamente o frete com base na distância da rota, peso da carga, capacidade do veículo, valor por km e pedágios. Adicionais: Perigosa +30%, Perecível +20%, Frágil +15%, Granel +5%.</td>
+            <td><span class="badge alta">ALTA</span></td>
+            <td>Financeiro, Administrador</td>
+        </tr>
+        <tr>
+            <td>RF07</td>
+            <td>O sistema deve permitir associar um veículo e um motorista disponíveis a uma viagem programada.</td>
+            <td><span class="badge alta">ALTA</span></td>
+            <td>Gestor de Transporte</td>
+        </tr>
+        <tr>
+            <td>RF08</td>
+            <td>O sistema deve registrar viagens com os dados: veículo, motorista, rota, carga, cliente e data de partida prevista.</td>
+            <td><span class="badge alta">ALTA</span></td>
+            <td>Gestor de Transporte</td>
+        </tr>
+        <tr>
+            <td>RF09</td>
+            <td>O sistema deve permitir alterar o status da viagem para: Programada, Em Andamento, Concluída ou Cancelada, registrando automaticamente as datas de partida e chegada.</td>
+            <td><span class="badge alta">ALTA</span></td>
+            <td>Gestor de Transporte, Motorista</td>
+        </tr>
+        <tr>
+            <td>RF10</td>
+            <td>O sistema deve gerar relatórios de viagens realizadas e fretes calculados, com filtros por período, motorista, veículo e status.</td>
+            <td><span class="badge media">MÉDIA</span></td>
+            <td>Administrador, Financeiro</td>
+        </tr>
+        <tr>
+            <td>RF11</td>
+            <td>O sistema deve permitir consultar o histórico de viagens por veículo e por motorista.</td>
+            <td><span class="badge media">MÉDIA</span></td>
+            <td>Administrador, Gestor de Transporte, Financeiro</td>
+        </tr>
+        <tr>
+            <td>RF12</td>
+            <td>O sistema deve permitir cadastrar usuários com níveis de acesso diferenciados (Administrador, Gestor de Transporte, Motorista, Financeiro).</td>
+            <td><span class="badge alta">ALTA</span></td>
+            <td>Administrador</td>
+        </tr>
+        <tr>
+            <td>RF13</td>
+            <td>O sistema deve realizar autenticação por login e senha, gerando token JWT para as sessões.</td>
+            <td><span class="badge alta">ALTA</span></td>
+            <td>Todos</td>
+        </tr>
+        <tr>
+            <td>RF14</td>
+            <td>O sistema deve exibir um painel gerencial (dashboard) com indicadores resumidos: viagens ativas, veículos em rota, fretes do mês, alertas.</td>
+            <td><span class="badge media">MÉDIA</span></td>
+            <td>Administrador, Gestor de Transporte</td>
+        </tr>
+        <tr>
+            <td>RF15</td>
+            <td>O sistema deve validar a disponibilidade de veículo e motorista antes de confirmar uma nova viagem.</td>
+            <td><span class="badge alta">ALTA</span></td>
+            <td>Gestor de Transporte</td>
+        </tr>
+        <tr>
+            <td>RF16</td>
+            <td>O sistema mobile deve exibir ao motorista apenas suas viagens e permitir atualizar o status.</td>
+            <td><span class="badge media">MÉDIA</span></td>
+            <td>Motorista</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>2. Requisitos Não Funcionais</h3>
+
+<table>
+    <thead>
+        <tr><th>ID</th><th>Categoria</th><th>Descrição</th><th>Prioridade</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>RNF01</td>
+            <td>Disponibilidade</td>
+            <td>O sistema deve estar disponível 95% do tempo em ambiente de nuvem.</td>
+            <td><span class="badge alta">ALTA</span></td>
+        </tr>
+        <tr>
+            <td>RNF02</td>
+            <td>Segurança</td>
+            <td>Todas as requisições à API (exceto login) devem ser autenticadas via token JWT.</td>
+            <td><span class="badge alta">ALTA</span></td>
+        </tr>
+        <tr>
+            <td>RNF03</td>
+            <td>Segurança</td>
+            <td>As senhas dos usuários devem ser armazenadas com hash bcrypt.</td>
+            <td><span class="badge alta">ALTA</span></td>
+        </tr>
+        <tr>
+            <td>RNF04</td>
+            <td>Usabilidade</td>
+            <td>A interface web deve ser responsiva e funcionar adequadamente em resoluções a partir de 1024x768.</td>
+            <td><span class="badge media">MÉDIA</span></td>
+        </tr>
+        <tr>
+            <td>RNF05</td>
+            <td>Usabilidade</td>
+            <td>O aplicativo mobile deve funcionar em dispositivos Android (versão 8+) e iOS (versão 13+).</td>
+            <td><span class="badge media">MÉDIA</span></td>
+        </tr>
+        <tr>
+            <td>RNF06</td>
+            <td>Desempenho</td>
+            <td>As requisições à API REST devem responder em até 2 segundos em condições normais.</td>
+            <td><span class="badge media">MÉDIA</span></td>
+        </tr>
+        <tr>
+            <td>RNF07</td>
+            <td>Manutenibilidade</td>
+            <td>O código backend deve possuir cobertura de testes (TDD) com Jest/Supertest nas principais rotas.</td>
+            <td><span class="badge alta">ALTA</span></td>
+        </tr>
+        <tr>
+            <td>RNF08</td>
+            <td>Portabilidade</td>
+            <td>O backend deve ser containerizável (Docker) para facilitar implantação em diferentes ambientes de nuvem.</td>
+            <td><span class="badge media">MÉDIA</span></td>
+        </tr>
+        <tr>
+            <td>RNF09</td>
+            <td>Compatibilidade</td>
+            <td>A API REST deve seguir os padrões HTTP/JSON, sendo consumível por qualquer cliente (web, mobile, outros).</td>
+            <td><span class="badge alta">ALTA</span></td>
+        </tr>
+        <tr>
+            <td>RNF10</td>
+            <td>Rastreabilidade</td>
+            <td>O código deve ser versionado com Git, com histórico de commits descritivos ao longo do desenvolvimento.</td>
+            <td><span class="badge alta">ALTA</span></td>
+        </tr>
+        <tr>
+            <td>RNF11</td>
+            <td>Escalabilidade</td>
+            <td>A arquitetura deve permitir a substituição do banco SQLite por PostgreSQL sem refatorações significativas.</td>
+            <td><span class="badge baixa">BAIXA</span></td>
+        </tr>
+        <tr>
+            <td>RNF12</td>
+            <td>Acessibilidade</td>
+            <td>As interfaces devem seguir boas práticas de acessibilidade (contraste de cores, tamanho de fonte adequado, labels em formulários).</td>
+            <td><span class="badge baixa">BAIXA</span></td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>3. Regras de Negócio</h3>
+<table>
+    <thead>
+        <tr><th>ID</th><th>Regra</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>RN01</td><td>Um veículo não pode ser alocado a duas viagens simultâneas com status "Programada" ou "Em Andamento".</td></tr>
+        <tr><td>RN02</td><td>Um motorista não pode ser alocado a duas viagens simultâneas com status "Programada" ou "Em Andamento".</td></tr>
+        <tr><td>RN03</td><td>O peso da carga não pode exceder a capacidade de carga do veículo alocado.</td></tr>
+        <tr><td>RN04</td><td>O valor do frete = (distância × R$2,50/km × fator_peso) + pedágio + adicional_tipo_carga. Fator_peso = peso_carga / capacidade_veículo.</td></tr>
+        <tr><td>RN05</td><td>A exclusão de um motorista ou veículo não é permitida se houver viagens ativas (Programada ou Em Andamento) vinculadas.</td></tr>
+        <tr><td>RN06</td><td>Somente o Administrador pode cadastrar, editar ou excluir usuários do sistema.</td></tr>
+        <tr><td>RN07</td><td>Um frete é gerado automaticamente ao criar uma viagem, podendo ser recalculado pelo perfil Financeiro.</td></tr>
+    </tbody>
+</table>
+
+<footer>SIGETRAN - Projeto Acadêmico | Projetos de Software II | Uniube</footer>
+</body>
+</html>

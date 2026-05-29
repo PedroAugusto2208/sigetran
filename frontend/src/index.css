@@ -1,0 +1,16 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f2f5; color: #333; }
+a { text-decoration: none; color: inherit; }
+
+:root {
+  --primary:   #1a3a5c;
+  --primary-light: #2d6a9f;
+  --accent:    #27ae60;
+  --danger:    #e74c3c;
+  --warning:   #f39c12;
+  --bg:        #f0f2f5;
+  --card:      #ffffff;
+  --border:    #dde3ec;
+  --text:      #333333;
+  --muted:     #888888;
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGETRAN - 4.1 Definição do Escopo</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #fff; color: #333; padding: 40px 60px; line-height: 1.7; }
+        h1 { text-align: center; color: #1a3a5c; font-size: 24px; margin-bottom: 4px; }
+        h2 { text-align: center; color: #555; font-size: 16px; font-weight: 400; margin-bottom: 40px; }
+        h3 { color: #1a3a5c; font-size: 16px; margin: 24px 0 10px 0; border-bottom: 2px solid #1a3a5c; padding-bottom: 4px; }
+        .projeto-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #1a3a5c; }
+        .projeto-header p { color: #888; font-size: 13px; }
+        .secao { margin-bottom: 28px; }
+        p { margin-bottom: 10px; font-size: 14px; }
+        ul, ol { padding-left: 24px; font-size: 14px; }
+        ul li, ol li { margin-bottom: 6px; }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 10px; }
+        th { background: #1a3a5c; color: #fff; padding: 10px 14px; text-align: left; }
+        td { padding: 9px 14px; border-bottom: 1px solid #eee; vertical-align: top; }
+        tr:nth-child(even) td { background: #f8fafd; }
+        .tag { display: inline-block; background: #e8f0fe; color: #1a3a5c; border-radius: 4px; padding: 2px 8px; font-size: 12px; font-weight: 600; }
+        footer { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #ddd; color: #888; font-size: 12px; }
+    </style>
+</head>
+<body>
+
+<div class="projeto-header">
+    <h1>4.1 - Definição do Escopo do Projeto</h1>
+    <h2>SIGETRAN - Sistema de Gestão de Transporte</h2>
+    <p>Projeto acadêmico - Disciplina: Projetos de Software II | Prof. Marcos Lopes | Uniube</p>
+</div>
+
+<div class="secao">
+    <h3>1. Visão Geral do Projeto</h3>
+    <p>O <strong>SIGETRAN</strong> (Sistema de Gestão de Transporte) é um sistema de informação destinado ao controle e gerenciamento de operações de transporte de cargas. O sistema permite o cadastro e controle de frota de veículos, motoristas, clientes, rotas e viagens, além do cálculo automatizado de fretes.</p>
+    <p>O sistema será disponibilizado em duas interfaces: <strong>web</strong> (para uso em computadores por gestores e financeiro) e <strong>mobile</strong> (para uso por motoristas em campo), ambas acessíveis remotamente via nuvem.</p>
+</div>
+
+<div class="secao">
+    <h3>2. Objetivos do Projeto</h3>
+    <ul>
+        <li>Automatizar o controle da frota de veículos e alocação de motoristas;</li>
+        <li>Gerenciar o ciclo completo de viagens: programação, acompanhamento e conclusão;</li>
+        <li>Calcular automaticamente o valor de fretes com base em regras de negócio definidas;</li>
+        <li>Fornecer relatórios gerenciais para apoio à tomada de decisão;</li>
+        <li>Controlar o acesso ao sistema por meio de perfis de usuário diferenciados.</li>
+    </ul>
+</div>
+
+<div class="secao">
+    <h3>3. Escopo Incluso</h3>
+    <ul>
+        <li>Cadastro e gestão de veículos (frota);</li>
+        <li>Cadastro e gestão de motoristas (CNH, contato);</li>
+        <li>Cadastro e gestão de clientes (pessoa física e jurídica);</li>
+        <li>Cadastro e gestão de rotas (origem, destino, distância, pedágio);</li>
+        <li>Cadastro e gestão de cargas (peso, volume, tipo de mercadoria);</li>
+        <li>Programação, acompanhamento e atualização de status de viagens;</li>
+        <li>Cálculo automático de fretes com base em regras configuradas;</li>
+        <li>Emissão de relatórios gerenciais (viagens, fretes, utilização de frota);</li>
+        <li>Autenticação e controle de acesso por perfis de usuário;</li>
+        <li>Interface web responsiva (React);</li>
+        <li>Aplicativo mobile (React Native / Expo);</li>
+        <li>API REST com backend em Node.js;</li>
+        <li>Implantação em ambiente de nuvem.</li>
+    </ul>
+</div>
+
+<div class="secao">
+    <h3>4. Escopo Excluído</h3>
+    <ul>
+        <li>Integração com sistemas de rastreamento GPS em tempo real;</li>
+        <li>Módulo financeiro contábil (apenas cálculo de frete);</li>
+        <li>Integração com sistemas externos de NF-e / SEFAZ;</li>
+        <li>Aplicativo para clientes finais solicitarem fretes;</li>
+        <li>Módulo de manutenção de veículos.</li>
+    </ul>
+</div>
+
+<div class="secao">
+    <h3>5. Perfis de Usuário</h3>
+    <table>
+        <thead>
+            <tr><th>Perfil</th><th>Responsabilidades</th><th>Acesso</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><span class="tag">Administrador</span></td><td>Gerencia todos os cadastros, usuários e configurações do sistema</td><td>Total</td></tr>
+            <tr><td><span class="tag">Gestor de Transporte</span></td><td>Programa viagens, aloca veículos e motoristas, consulta relatórios</td><td>Frota, Motoristas, Viagens, Rotas, Relatórios</td></tr>
+            <tr><td><span class="tag">Motorista</span></td><td>Visualiza suas viagens programadas e atualiza status</td><td>Visualizar viagens próprias, atualizar status</td></tr>
+            <tr><td><span class="tag">Financeiro</span></td><td>Visualiza fretes calculados e emite relatórios financeiros</td><td>Fretes, Relatórios</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="secao">
+    <h3>6. Modelo de Dados (Entidades Principais)</h3>
+    <p>O sistema contempla <strong>8 entidades</strong> no modelo de dados:</p>
+    <table>
+        <thead>
+            <tr><th>#</th><th>Entidade</th><th>Descrição</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>VEICULO</td><td>Veículos da frota com placa, modelo, marca, ano e capacidade de carga</td></tr>
+            <tr><td>2</td><td>MOTORISTA</td><td>Motoristas com CPF, CNH, contato e situação</td></tr>
+            <tr><td>3</td><td>CLIENTE</td><td>Clientes pessoa física ou jurídica com CPF/CNPJ e contato</td></tr>
+            <tr><td>4</td><td>ROTA</td><td>Rotas com origem, destino, distância e valor de pedágio</td></tr>
+            <tr><td>5</td><td>CARGA</td><td>Cargas com descrição, peso, volume e tipo de mercadoria</td></tr>
+            <tr><td>6</td><td>VIAGEM</td><td>Registro de viagens associando veículo, motorista, rota, carga e cliente</td></tr>
+            <tr><td>7</td><td>FRETE</td><td>Cálculo financeiro da viagem com valor base, pedágio e adicionais</td></tr>
+            <tr><td>8</td><td>USUARIO</td><td>Usuários do sistema com login, senha e perfil de acesso</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="secao">
+    <h3>7. Tecnologias Definidas</h3>
+    <table>
+        <thead>
+            <tr><th>Camada</th><th>Tecnologia</th><th>Justificativa</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Backend (API REST)</td><td>Node.js + Express</td><td>Ampla adoção, ecosistema maduro, facilidade de implantação</td></tr>
+            <tr><td>Banco de Dados</td><td>SQLite (dev) / PostgreSQL (prod)</td><td>SQLite para desenvolvimento local, PostgreSQL para produção em nuvem</td></tr>
+            <tr><td>ORM</td><td>Sequelize</td><td>Abstração de banco com suporte a múltiplos SGBDs</td></tr>
+            <tr><td>Autenticação</td><td>JWT (JSON Web Token)</td><td>Padrão para APIs RESTful stateless</td></tr>
+            <tr><td>Testes</td><td>Jest + Supertest</td><td>TDD no backend com cobertura de rotas</td></tr>
+            <tr><td>Frontend Web</td><td>React + Vite</td><td>Componentização, reatividade, ecossistema rico</td></tr>
+            <tr><td>Mobile</td><td>React Native + Expo</td><td>Código único para iOS e Android, facilidade de build</td></tr>
+            <tr><td>Nuvem</td><td>Render (backend) + Vercel (frontend)</td><td>Plataformas gratuitas adequadas para projetos acadêmicos</td></tr>
+            <tr><td>Controle de Versão</td><td>Git + GitHub</td><td>Controle de versão distribuído com repositório remoto</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="secao">
+    <h3>8. Restrições e Premissas</h3>
+    <ul>
+        <li>O sistema não possui código legado — desenvolvido integralmente durante o semestre;</li>
+        <li>O banco de dados deve conter ao menos 8 entidades no modelo de dados;</li>
+        <li>O sistema deve ser acessível via web e mobile;</li>
+        <li>O sistema deve estar implantado em ambiente de nuvem;</li>
+        <li>A equipe utiliza Git para controle de versão durante todo o desenvolvimento.</li>
+    </ul>
+</div>
+
+<footer>SIGETRAN - Projeto Acadêmico | Projetos de Software II | Uniube</footer>
+</body>
+</html>

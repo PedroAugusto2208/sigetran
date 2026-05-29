@@ -1,0 +1,17 @@
+{
+  "expo": {
+    "name": "SIGETRAN",
+    "slug": "sigetran",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "sigetran",
+    "icon": "./assets/icon.png",
+    "splash": { "resizeMode": "contain", "backgroundColor": "#1a3a5c" },
+    "android": {
+      "adaptiveIcon": { "backgroundColor": "#1a3a5c" },
+      "package": "br.edu.uniube.sigetran"
+    },
+    "ios": { "bundleIdentifier": "br.edu.uniube.sigetran" },
+    "plugins": ["expo-router"]
+  }
+}

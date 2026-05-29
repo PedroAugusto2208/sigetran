@@ -1,0 +1,208 @@
+@startuml InteracoesComponentes_SIGETRAN
+
+title Diagrama de Classes — Interações entre Componentes\nSIGETRAN - Sistema de Gestão de Transporte
+
+skinparam class {
+    BackgroundColor #f8fafd
+    BorderColor #1a3a5c
+    HeaderBackgroundColor #1a3a5c
+    FontColor #333
+    HeaderFontColor #fff
+    ArrowColor #2d6a9f
+}
+
+skinparam package {
+    BackgroundColor #f0f4fa
+    BorderColor #2d6a9f
+    FontColor #1a3a5c
+    FontStyle bold
+}
+
+skinparam linetype ortho
+
+' ===========================
+' CAMADA: ROUTES (Express)
+' ===========================
+package "Routes (Express Router)" {
+    class AuthRouter {
+        + POST /auth/login
+    }
+    class VeiculoRouter {
+        + GET    /veiculos
+        + GET    /veiculos/:id
+        + POST   /veiculos
+        + PUT    /veiculos/:id
+        + DELETE /veiculos/:id
+    }
+    class ViagemRouter {
+        + GET  /viagens
+        + POST /viagens
+        + PUT  /viagens/:id/status
+    }
+    class FreteRouter {
+        + GET  /fretes/:id
+        + POST /fretes/calcular
+    }
+    class RelatorioRouter {
+        + GET /relatorios/viagens
+        + GET /relatorios/fretes
+    }
+}
+
+' ===========================
+' CAMADA: MIDDLEWARE
+' ===========================
+package "Middleware" {
+    class AuthMiddleware {
+        + verificarToken(req, res, next)
+        - validarJWT(token) : payload
+    }
+    class RoleMiddleware {
+        + exigirPerfil(perfis[]) : Function
+    }
+}
+
+' ===========================
+' CAMADA: CONTROLLERS
+' ===========================
+package "Controllers" {
+    class AuthController {
+        + login(req, res)
+    }
+    class VeiculoController {
+        + listar(req, res)
+        + buscarPorId(req, res)
+        + criar(req, res)
+        + atualizar(req, res)
+        + remover(req, res)
+    }
+    class MotoristaController {
+        + listar(req, res)
+        + criar(req, res)
+        + atualizar(req, res)
+        + remover(req, res)
+    }
+    class ViagemController {
+        + listar(req, res)
+        + criar(req, res)
+        + atualizarStatus(req, res)
+    }
+    class FreteController {
+        + buscar(req, res)
+        + calcular(req, res)
+    }
+    class RelatorioController {
+        + relatorioViagens(req, res)
+        + relatorioFretes(req, res)
+    }
+}
+
+' ===========================
+' CAMADA: SERVICES
+' ===========================
+package "Services (Regras de Negócio)" {
+    class AuthService {
+        + autenticar(login, senha) : token
+        - gerarJWT(usuario) : string
+        - verificarSenha(raw, hash) : boolean
+    }
+    class VeiculoService {
+        + listarTodos() : Veiculo[]
+        + buscarPorId(id) : Veiculo
+        + criar(dados) : Veiculo
+        + atualizar(id, dados) : Veiculo
+        + remover(id) : void
+        + verificarDisponibilidade(id, data) : boolean
+    }
+    class ViagemService {
+        + listarTodas() : Viagem[]
+        + criar(dados) : Viagem
+        + atualizarStatus(id, status) : Viagem
+        - validarDisponibilidade(veiculoId, motoristaId) : void
+        - validarCapacidade(veiculoId, cargaId) : void
+    }
+    class FreteService {
+        + calcular(dados) : Frete
+        + buscarPorViagem(viagemId) : Frete
+        - calcularValorBase(distancia) : number
+        - calcularAdicionalCarga(tipo, base) : number
+    }
+}
+
+' ===========================
+' CAMADA: MODELS (Sequelize)
+' ===========================
+package "Models (Sequelize ORM)" {
+    class UsuarioModel {
+        + findOne(query)
+        + create(dados)
+        + update(dados)
+    }
+    class VeiculoModel {
+        + findAll()
+        + findByPk(id)
+        + create(dados)
+        + destroy(id)
+    }
+    class ViagemModel {
+        + findAll(options)
+        + create(dados)
+        + save()
+    }
+    class FreteModel {
+        + create(dados)
+        + findOne(query)
+    }
+}
+
+' ===========================
+' BANCO DE DADOS
+' ===========================
+package "Banco de Dados" {
+    class SQLiteDB <<database>> {
+        sigetran.db
+    }
+}
+
+' ===========================
+' RELACIONAMENTOS
+' ===========================
+
+' Routes → Middleware
+VeiculoRouter ..> AuthMiddleware : usa
+VeiculoRouter ..> RoleMiddleware : usa
+ViagemRouter ..> AuthMiddleware : usa
+FreteRouter ..> AuthMiddleware : usa
+RelatorioRouter ..> AuthMiddleware : usa
+
+' Routes → Controllers
+AuthRouter --> AuthController
+VeiculoRouter --> VeiculoController
+ViagemRouter --> ViagemController
+FreteRouter --> FreteController
+RelatorioRouter --> RelatorioController
+
+' Controllers → Services
+AuthController --> AuthService
+VeiculoController --> VeiculoService
+MotoristaController --> VeiculoService
+ViagemController --> ViagemService
+FreteController --> FreteService
+RelatorioController --> FreteService
+RelatorioController --> ViagemService
+
+' Services → Models
+AuthService --> UsuarioModel
+VeiculoService --> VeiculoModel
+ViagemService --> ViagemModel
+ViagemService --> VeiculoModel
+FreteService --> FreteModel
+FreteService --> ViagemModel
+
+' Models → DB
+UsuarioModel --> SQLiteDB
+VeiculoModel --> SQLiteDB
+ViagemModel --> SQLiteDB
+FreteModel --> SQLiteDB
+
+@enduml

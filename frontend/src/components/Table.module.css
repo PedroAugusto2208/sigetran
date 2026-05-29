@@ -1,0 +1,9 @@
+.wrapper { overflow-x: auto; }
+.table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.table th { background: var(--primary); color: #fff; padding: 10px 14px; text-align: left; font-weight: 600; }
+.table td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+.table tr:hover td { background: #f8fafd; }
+.btnEdit { background: var(--primary-light); color: #fff; border: none; border-radius: 4px; padding: 4px 10px; cursor: pointer; margin-right: 6px; font-size: 12px; }
+.btnDelete { background: var(--danger); color: #fff; border: none; border-radius: 4px; padding: 4px 10px; cursor: pointer; font-size: 12px; }
+.btnEdit:hover { opacity: 0.85; }
+.btnDelete:hover { opacity: 0.85; }
