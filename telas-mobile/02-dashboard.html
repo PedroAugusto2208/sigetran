@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SIGETRAN Mobile - Dashboard</title>
+    <link rel="stylesheet" href="mobile-style.css">
+</head>
+<body class="has-bottom-nav">
+    <div class="mobile-header">
+        <button class="menu-icon" onclick="document.getElementById('menu').style.display = document.getElementById('menu').style.display === 'block' ? 'none' : 'block'">&#9776;</button>
+        <h1>SIGETRAN</h1>
+        <div class="user-avatar">AD</div>
+    </div>
+
+    <div class="mobile-menu" id="menu" style="display: none;">
+        <ul>
+            <li><a href="02-dashboard.html" class="active"><span class="icon">&#9776;</span> Dashboard</a></li>
+            <li><a href="03-veiculos.html"><span class="icon">&#9951;</span> Frota / Veiculos</a></li>
+            <li><a href="04-motoristas.html"><span class="icon">&#9823;</span> Motoristas</a></li>
+            <li><a href="05-clientes.html"><span class="icon">&#9734;</span> Clientes</a></li>
+            <li><a href="06-rotas.html"><span class="icon">&#10132;</span> Rotas</a></li>
+            <li><a href="07-cargas.html"><span class="icon">&#9744;</span> Cargas</a></li>
+            <li><a href="08-viagens.html"><span class="icon">&#9992;</span> Viagens</a></li>
+            <li><a href="09-frete.html"><span class="icon">&#36;</span> Calculo de Frete</a></li>
+            <li><a href="10-relatorios.html"><span class="icon">&#9783;</span> Relatorios</a></li>
+            <li><a href="11-usuarios.html"><span class="icon">&#9881;</span> Usuarios</a></li>
+            <li><a href="01-login.html"><span class="icon">&#10140;</span> Sair</a></li>
+        </ul>
+    </div>
+
+    <div class="page-content">
+        <div class="cards-grid">
+            <div class="card-stat">
+                <div class="card-icon">&#9951;</div>
+                <div class="card-value">24</div>
+                <div class="card-label">Veiculos</div>
+            </div>
+            <div class="card-stat">
+                <div class="card-icon">&#9823;</div>
+                <div class="card-value">18</div>
+                <div class="card-label">Motoristas</div>
+            </div>
+            <div class="card-stat">
+                <div class="card-icon">&#9992;</div>
+                <div class="card-value">7</div>
+                <div class="card-label">Em Andamento</div>
+            </div>
+            <div class="card-stat">
+                <div class="card-icon">&#9734;</div>
+                <div class="card-value">42</div>
+                <div class="card-label">Clientes</div>
+            </div>
+        </div>
+
+        <div class="list-container">
+            <div class="list-header">
+                <h3>Viagens Recentes</h3>
+            </div>
+            <div class="card-item">
+                <div class="card-item-title">SP &rarr; Rio de Janeiro</div>
+                <div class="card-item-details">
+                    <span>Carlos Silva</span>
+                    <span>ABC-1234</span>
+                </div>
+                <span class="badge badge-andamento">Em Andamento</span>
+            </div>
+            <div class="card-item">
+                <div class="card-item-title">Curitiba &rarr; Florianopolis</div>
+                <div class="card-item-details">
+                    <span>Jose Santos</span>
+                    <span>DEF-5678</span>
+                </div>
+                <span class="badge badge-concluida">Concluida</span>
+            </div>
+            <div class="card-item">
+                <div class="card-item-title">BH &rarr; Brasilia</div>
+                <div class="card-item-details">
+                    <span>Maria Oliveira</span>
+                    <span>GHI-9012</span>
+                </div>
+                <span class="badge badge-programada">Programada</span>
+            </div>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="02-dashboard.html" class="active">
+            <span class="nav-icon">&#9776;</span>
+            Home
+        </a>
+        <a href="08-viagens.html">
+            <span class="nav-icon">&#9992;</span>
+            Viagens
+        </a>
+        <a href="03-veiculos.html">
+            <span class="nav-icon">&#9951;</span>
+            Frota
+        </a>
+        <a href="09-frete.html">
+            <span class="nav-icon">&#36;</span>
+            Frete
+        </a>
+        <a href="10-relatorios.html">
+            <span class="nav-icon">&#9783;</span>
+            Mais
+        </a>
+    </nav>
+</body>
+</html>

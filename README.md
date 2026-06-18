@@ -65,8 +65,35 @@ npm run dev
 ```bash
 cd mobile
 npm install
+cp .env.example .env   # ajuste EXPO_PUBLIC_API_URL
 npx expo start
 ```
+
+Telas do app: Login, Dashboard (com menu de módulos), Viagens (+ nova viagem e
+mudança de status), Veículos, Motoristas, Clientes, Rotas, Cargas, Fretes,
+Usuários e Relatórios — todas consumindo a mesma API REST do backend.
+
+## Deploy (nas nuvens)
+
+### Backend → Render
+1. Suba o repositório no GitHub.
+2. No Render, crie um **Blueprint** apontando para o repo — ele lê `backend/render.yaml`.
+3. O `JWT_SECRET` é gerado automaticamente; o banco SQLite fica no disco persistente `/data`.
+4. URL final: `https://sigetran-backend.onrender.com` (ajuste conforme o nome gerado).
+
+### Frontend → Vercel
+1. Importe o repo na Vercel, **Root Directory** = `frontend` (config em `frontend/vercel.json`).
+2. Defina a variável de ambiente `VITE_API_URL` com a URL do backend no Render.
+3. Deploy automático a cada push.
+
+### Mobile → APK (EAS Build)
+```bash
+cd mobile
+npm install -g eas-cli
+eas login
+eas build -p android --profile preview   # gera APK p/ download (config em eas.json)
+```
+Ajuste `EXPO_PUBLIC_API_URL` em `mobile/eas.json` para a URL do backend.
 
 ## Tecnologias
 

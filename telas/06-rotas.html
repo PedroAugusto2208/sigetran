@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGETRAN - Rotas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>SIGETRAN</h2>
+                <span>Sistema de Gestao de Transporte</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="02-dashboard.html"><span class="icon">&#9776;</span> Dashboard</a></li>
+                    <li><a href="03-veiculos.html"><span class="icon">&#9951;</span> Frota / Veiculos</a></li>
+                    <li><a href="04-motoristas.html"><span class="icon">&#9823;</span> Motoristas</a></li>
+                    <li><a href="05-clientes.html"><span class="icon">&#9734;</span> Clientes</a></li>
+                    <li><a href="06-rotas.html" class="active"><span class="icon">&#10132;</span> Rotas</a></li>
+                    <li><a href="07-cargas.html"><span class="icon">&#9744;</span> Cargas</a></li>
+                    <li><a href="08-viagens.html"><span class="icon">&#9992;</span> Viagens</a></li>
+                    <li><a href="09-frete.html"><span class="icon">&#36;</span> Calculo de Frete</a></li>
+                    <li><a href="10-relatorios.html"><span class="icon">&#9783;</span> Relatorios</a></li>
+                    <li><a href="11-usuarios.html"><span class="icon">&#9881;</span> Usuarios</a></li>
+                    <li><a href="01-login.html"><span class="icon">&#10140;</span> Sair</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="topbar">
+                <h1>Rotas</h1>
+                <div class="user-info">
+                    <span>Gestor de Transporte</span>
+                    <div class="user-avatar">GT</div>
+                </div>
+            </div>
+
+            <div class="page-content">
+                <div class="table-container">
+                    <div class="table-header">
+                        <h3>Rotas Cadastradas</h3>
+                        <button class="btn-primary">+ Nova Rota</button>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Origem</th>
+                                <th>Destino</th>
+                                <th>Distancia (km)</th>
+                                <th>Tempo Estimado</th>
+                                <th>Pedagio (R$)</th>
+                                <th>Acoes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Sao Paulo, SP</td>
+                                <td>Rio de Janeiro, RJ</td>
+                                <td>435</td>
+                                <td>5h 30min</td>
+                                <td>R$ 85,40</td>
+                                <td class="actions">
+                                    <button class="btn-sm btn-edit">Editar</button>
+                                    <button class="btn-sm btn-delete">Excluir</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Curitiba, PR</td>
+                                <td>Florianopolis, SC</td>
+                                <td>300</td>
+                                <td>4h 00min</td>
+                                <td>R$ 42,20</td>
+                                <td class="actions">
+                                    <button class="btn-sm btn-edit">Editar</button>
+                                    <button class="btn-sm btn-delete">Excluir</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Belo Horizonte, MG</td>
+                                <td>Brasilia, DF</td>
+                                <td>716</td>
+                                <td>8h 30min</td>
+                                <td>R$ 56,80</td>
+                                <td class="actions">
+                                    <button class="btn-sm btn-edit">Editar</button>
+                                    <button class="btn-sm btn-delete">Excluir</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

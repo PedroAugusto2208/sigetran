@@ -7,7 +7,7 @@ const sequelize = new Sequelize({
   dialect: 'sqlite',
   storage: isTest
     ? ':memory:'
-    : path.join(__dirname, '../../sigetran.db'),
+    : (process.env.DB_STORAGE || path.join(__dirname, '../../sigetran.db')),
   logging: false,
 });
 

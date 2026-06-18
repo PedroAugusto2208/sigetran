@@ -34,6 +34,18 @@ export default function Dashboard() {
     { label: 'Concluídas',   value: stats?.concluidas   || 0, cor: '#27ae60', icon: '✅' },
   ];
 
+  const menu = [
+    { label: 'Viagens',    icon: '📋', rota: '/viagens' },
+    { label: 'Veículos',   icon: '🚛', rota: '/veiculos' },
+    { label: 'Motoristas', icon: '🧑‍✈️', rota: '/motoristas' },
+    { label: 'Clientes',   icon: '🏢', rota: '/clientes' },
+    { label: 'Rotas',      icon: '🗺️', rota: '/rotas' },
+    { label: 'Cargas',     icon: '📦', rota: '/cargas' },
+    { label: 'Fretes',     icon: '💰', rota: '/fretes' },
+    { label: 'Usuários',   icon: '👤', rota: '/usuarios' },
+    { label: 'Relatórios', icon: '📊', rota: '/relatorios' },
+  ];
+
   return (
     <View style={s.page}>
       <View style={s.header}>
@@ -54,9 +66,15 @@ export default function Dashboard() {
           ))}
         </View>
 
-        <TouchableOpacity style={s.btnViagens} onPress={() => router.push('/viagens')}>
-          <Text style={s.btnViagensText}>📋 Ver Minhas Viagens</Text>
-        </TouchableOpacity>
+        <Text style={s.secaoTitulo}>Módulos</Text>
+        <View style={s.menuGrid}>
+          {menu.map(m => (
+            <TouchableOpacity key={m.label} style={s.menuItem} onPress={() => router.push(m.rota)}>
+              <Text style={s.menuIcon}>{m.icon}</Text>
+              <Text style={s.menuLabel}>{m.label}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
       </ScrollView>
     </View>
   );
@@ -75,6 +93,9 @@ const s = StyleSheet.create({
   cardIcon:     { fontSize: 24, marginBottom: 8 },
   cardVal:      { fontSize: 26, fontWeight: '700', color: '#1a3a5c' },
   cardLabel:    { fontSize: 12, color: '#888', marginTop: 4 },
-  btnViagens:   { backgroundColor: '#1a3a5c', borderRadius: 10, padding: 16, alignItems: 'center' },
-  btnViagensText:{ color: '#fff', fontSize: 16, fontWeight: '700' },
+  secaoTitulo:  { fontSize: 15, fontWeight: '700', color: '#1a3a5c', marginBottom: 12 },
+  menuGrid:     { flexDirection: 'row', flexWrap: 'wrap', gap: 12 },
+  menuItem:     { backgroundColor: '#fff', borderRadius: 10, padding: 16, width: '47%', alignItems: 'center', shadowColor: '#000', shadowOpacity: 0.06, shadowRadius: 4, elevation: 2 },
+  menuIcon:     { fontSize: 28, marginBottom: 8 },
+  menuLabel:    { fontSize: 14, fontWeight: '600', color: '#1a3a5c' },
 });

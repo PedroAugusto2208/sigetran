@@ -68,6 +68,9 @@ export default function Viagens() {
         contentContainerStyle={s.scroll}
         refreshControl={<RefreshControl refreshing={refreshing} onRefresh={() => { setRefreshing(true); carregar(); }} />}
       >
+        <TouchableOpacity style={s.btnNova} onPress={() => router.push('/nova-viagem')}>
+          <Text style={s.btnNovaText}>➕ Nova Viagem</Text>
+        </TouchableOpacity>
         {viagens.length === 0 && <Text style={s.vazio}>Nenhuma viagem encontrada.</Text>}
         {viagens.map(v => {
           const cor = STATUS_COR[v.status] || {};
@@ -109,6 +112,8 @@ const s = StyleSheet.create({
   titulo:       { color: '#fff', fontSize: 18, fontWeight: '700' },
   scroll:       { padding: 16, gap: 12 },
   vazio:        { textAlign: 'center', color: '#888', marginTop: 40, fontSize: 15 },
+  btnNova:      { backgroundColor: '#1a3a5c', borderRadius: 10, padding: 14, alignItems: 'center', marginBottom: 4 },
+  btnNovaText:  { color: '#fff', fontSize: 15, fontWeight: '700' },
   card:         { backgroundColor: '#fff', borderRadius: 12, padding: 16, shadowColor: '#000', shadowOpacity: 0.06, shadowRadius: 4, elevation: 2 },
   cardHeader:   { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 },
   cardId:       { fontSize: 15, fontWeight: '700', color: '#1a3a5c' },

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGETRAN - Cargas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>SIGETRAN</h2>
+                <span>Sistema de Gestao de Transporte</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="02-dashboard.html"><span class="icon">&#9776;</span> Dashboard</a></li>
+                    <li><a href="03-veiculos.html"><span class="icon">&#9951;</span> Frota / Veiculos</a></li>
+                    <li><a href="04-motoristas.html"><span class="icon">&#9823;</span> Motoristas</a></li>
+                    <li><a href="05-clientes.html"><span class="icon">&#9734;</span> Clientes</a></li>
+                    <li><a href="06-rotas.html"><span class="icon">&#10132;</span> Rotas</a></li>
+                    <li><a href="07-cargas.html" class="active"><span class="icon">&#9744;</span> Cargas</a></li>
+                    <li><a href="08-viagens.html"><span class="icon">&#9992;</span> Viagens</a></li>
+                    <li><a href="09-frete.html"><span class="icon">&#36;</span> Calculo de Frete</a></li>
+                    <li><a href="10-relatorios.html"><span class="icon">&#9783;</span> Relatorios</a></li>
+                    <li><a href="11-usuarios.html"><span class="icon">&#9881;</span> Usuarios</a></li>
+                    <li><a href="01-login.html"><span class="icon">&#10140;</span> Sair</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="topbar">
+                <h1>Cargas</h1>
+                <div class="user-info">
+                    <span>Gestor de Transporte</span>
+                    <div class="user-avatar">GT</div>
+                </div>
+            </div>
+
+            <div class="page-content">
+                <div class="table-container">
+                    <div class="table-header">
+                        <h3>Cargas Cadastradas</h3>
+                        <button class="btn-primary">+ Nova Carga</button>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Descricao</th>
+                                <th>Peso (kg)</th>
+                                <th>Volume (m3)</th>
+                                <th>Tipo de Mercadoria</th>
+                                <th>Acoes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Eletronicos diversos</td>
+                                <td>12.000</td>
+                                <td>45</td>
+                                <td>Fragil</td>
+                                <td class="actions">
+                                    <button class="btn-sm btn-edit">Editar</button>
+                                    <button class="btn-sm btn-delete">Excluir</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Combustiveis liquidos</td>
+                                <td>25.000</td>
+                                <td>30</td>
+                                <td>Perigosa</td>
+                                <td class="actions">
+                                    <button class="btn-sm btn-edit">Editar</button>
+                                    <button class="btn-sm btn-delete">Excluir</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Alimentos refrigerados</td>
+                                <td>18.000</td>
+                                <td>55</td>
+                                <td>Perecivel</td>
+                                <td class="actions">
+                                    <button class="btn-sm btn-edit">Editar</button>
+                                    <button class="btn-sm btn-delete">Excluir</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

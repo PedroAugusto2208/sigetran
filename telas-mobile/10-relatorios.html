@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SIGETRAN Mobile - Relatorios</title>
+    <link rel="stylesheet" href="mobile-style.css">
+</head>
+<body class="has-bottom-nav">
+    <div class="mobile-header">
+        <button class="menu-icon" onclick="history.back()">&#8592;</button>
+        <h1>Relatorios</h1>
+        <div class="user-avatar">AD</div>
+    </div>
+
+    <div class="page-content">
+        <div class="report-card">
+            <div class="report-icon">&#9992;</div>
+            <div class="report-title">Viagens Realizadas</div>
+            <div class="report-desc">Historico completo com filtros por periodo, motorista e veiculo</div>
+        </div>
+
+        <div class="report-card">
+            <div class="report-icon">&#36;</div>
+            <div class="report-title">Fretes Calculados</div>
+            <div class="report-desc">Relatorio financeiro de fretes e faturamento</div>
+        </div>
+
+        <div class="report-card">
+            <div class="report-icon">&#9951;</div>
+            <div class="report-title">Utilizacao da Frota</div>
+            <div class="report-desc">Indicadores de uso, quilometragem e disponibilidade</div>
+        </div>
+
+        <div class="report-card">
+            <div class="report-icon">&#9823;</div>
+            <div class="report-title">Desempenho Motoristas</div>
+            <div class="report-desc">Viagens por motorista e indicadores de performance</div>
+        </div>
+
+        <!-- Exemplo de relatorio -->
+        <div class="list-container" style="margin-top: 8px;">
+            <div class="list-header">
+                <h3>Abril/2026</h3>
+                <button class="btn-primary">Exportar</button>
+            </div>
+
+            <div class="card-item">
+                <div class="card-item-title">BH &rarr; Brasilia</div>
+                <div class="card-item-row">
+                    <span>14/04/2026</span>
+                    <span>R$ 3.450,00</span>
+                </div>
+                <div class="card-item-details">
+                    <span>Maria Oliveira - GHI-9012</span>
+                </div>
+                <span class="badge badge-concluida">Concluida</span>
+            </div>
+
+            <div class="card-item">
+                <div class="card-item-title">SP &rarr; Rio de Janeiro</div>
+                <div class="card-item-row">
+                    <span>12/04/2026</span>
+                    <span>R$ 2.186,45</span>
+                </div>
+                <div class="card-item-details">
+                    <span>Carlos Silva - ABC-1234</span>
+                </div>
+                <span class="badge badge-concluida">Concluida</span>
+            </div>
+
+            <div class="card-item">
+                <div class="card-item-title">CWB &rarr; Florianopolis</div>
+                <div class="card-item-row">
+                    <span>10/04/2026</span>
+                    <span>R$ 1.890,00</span>
+                </div>
+                <div class="card-item-details">
+                    <span>Jose Santos - DEF-5678</span>
+                </div>
+                <span class="badge badge-concluida">Concluida</span>
+            </div>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="02-dashboard.html"><span class="nav-icon">&#9776;</span>Home</a>
+        <a href="08-viagens.html"><span class="nav-icon">&#9992;</span>Viagens</a>
+        <a href="03-veiculos.html"><span class="nav-icon">&#9951;</span>Frota</a>
+        <a href="09-frete.html"><span class="nav-icon">&#36;</span>Frete</a>
+        <a href="10-relatorios.html" class="active"><span class="nav-icon">&#9783;</span>Mais</a>
+    </nav>
+</body>
+</html>

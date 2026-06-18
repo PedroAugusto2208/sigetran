@@ -1,0 +1,22 @@
+# Deploy do backend SIGETRAN no Render (https://render.com)
+# Crie um "Blueprint" apontando para este repositório.
+services:
+  - type: web
+    name: sigetran-backend
+    runtime: node
+    rootDir: backend
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true          # Render gera um segredo seguro
+      - key: DB_STORAGE
+        value: /data/sigetran.db      # banco no disco persistente
+    disk:
+      name: sigetran-data
+      mountPath: /data
+      sizeGB: 1

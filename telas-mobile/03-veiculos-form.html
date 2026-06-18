@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SIGETRAN Mobile - Cadastrar Veiculo</title>
+    <link rel="stylesheet" href="mobile-style.css">
+</head>
+<body>
+    <div class="mobile-header">
+        <button class="menu-icon" onclick="window.location.href='03-veiculos.html'">&#8592;</button>
+        <h1>Novo Veiculo</h1>
+        <div class="user-avatar">GT</div>
+    </div>
+
+    <div class="page-content">
+        <div class="form-container">
+            <form>
+                <div class="form-group">
+                    <label>Placa</label>
+                    <input type="text" placeholder="AAA-0000">
+                </div>
+                <div class="form-group">
+                    <label>Modelo</label>
+                    <input type="text" placeholder="Ex: FH 540">
+                </div>
+                <div class="form-group">
+                    <label>Marca</label>
+                    <input type="text" placeholder="Ex: Volvo">
+                </div>
+                <div class="form-group">
+                    <label>Ano de Fabricacao</label>
+                    <input type="number" placeholder="2024">
+                </div>
+                <div class="form-group">
+                    <label>Capacidade de Carga (kg)</label>
+                    <input type="number" placeholder="30000">
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select>
+                        <option>Ativo</option>
+                        <option>Inativo</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <a href="03-veiculos.html" class="btn-secondary">Cancelar</a>
+                    <button type="button" class="btn-primary" onclick="window.location.href='03-veiculos.html'">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
