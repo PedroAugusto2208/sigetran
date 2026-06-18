@@ -14,9 +14,7 @@ services:
         value: production
       - key: JWT_SECRET
         generateValue: true          # Render gera um segredo seguro
-      - key: DB_STORAGE
-        value: /data/sigetran.db      # banco no disco persistente
-    disk:
-      name: sigetran-data
-      mountPath: /data
-      sizeGB: 1
+    # OBS: plano free nao suporta disco persistente. O SQLite fica em disco
+    # efemero (reseta em cada deploy/restart); o usuario admin e recriado
+    # automaticamente no boot. Para persistir dados, suba para plano pago e
+    # reative o bloco "disk" + a env DB_STORAGE=/data/sigetran.db.
