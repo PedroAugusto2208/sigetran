@@ -1,5 +1,5 @@
 # Deploy do backend SIGETRAN no Render (https://render.com)
-# Crie um "Blueprint" apontando para este repositório.
+# Crie um "Blueprint" apontando para este repositório (este arquivo fica na RAIZ).
 services:
   - type: web
     name: sigetran-backend
