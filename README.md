@@ -77,7 +77,7 @@ Usuários e Relatórios — todas consumindo a mesma API REST do backend.
 
 ### Backend → Render
 1. Suba o repositório no GitHub.
-2. No Render, crie um **Blueprint** apontando para o repo — ele lê `backend/render.yaml`.
+2. No Render, crie um **Blueprint** apontando para o repo — ele lê `render.yaml` (na raiz).
 3. O `JWT_SECRET` é gerado automaticamente; o banco SQLite fica no disco persistente `/data`.
 4. URL final: `https://sigetran-backend.onrender.com` (ajuste conforme o nome gerado).
 
