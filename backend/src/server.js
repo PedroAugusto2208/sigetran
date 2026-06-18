@@ -1,25 +1,18 @@
 require('dotenv').config();
 const app = require('./app');
 const { sequelize } = require('./models');
-const bcrypt = require('bcryptjs');
-const { Usuario } = require('./models');
+const popular = require('./seedData');
 
 const PORT = process.env.PORT || 3001;
 
 async function iniciar() {
   await sequelize.sync();
 
-  // Seed: admin padrão se não existir
-  const existe = await Usuario.findOne({ where: { login: 'admin' } });
-  if (!existe) {
-    await Usuario.create({
-      login: 'admin',
-      senha: await bcrypt.hash('admin123', 10),
-      nome:  'Administrador',
-      tipo:  'ADMINISTRADOR',
-    });
-    console.log('Usuário admin criado: login=admin / senha=admin123');
-  }
+  // Popula dados de demonstração se o banco estiver vazio.
+  // Importante em hospedagens com disco efêmero (ex.: Render free),
+  // onde o banco é recriado a cada deploy/restart.
+  const criou = await popular();
+  if (criou) console.log('Dados de demonstração criados (admin / admin123).');
 
   app.listen(PORT, () => console.log(`SIGETRAN API rodando na porta ${PORT}`));
 }
